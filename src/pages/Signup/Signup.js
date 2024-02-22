@@ -1,21 +1,21 @@
 import React from 'react';
-import './login.css';
+import './Signup.css';
 import Footer from '../../components/footer/footer';
-import {Link} from 'react-router-dom';
 
-function Login(){
+function SignUp(){
     return(
         <div className='containerLogin'>
         <form> 
             
-            <h2>Login<img src="./img/Logo.jpg" alt="Alternate Text"/></h2>
+            <h2>Register<img src="./img/Logo.jpg" alt="Alternate Text"/></h2>
             <input placeholder="username" type='text' id='username' />
             <input placeholder="password" type='password' id='password' />
-            <Link to="/"><button type='submit'>Login</button></Link>
-            <span><a href="/">Register now</a></span>
+            <input placeholder="confirm password" type='password' id='password' />
+            <button type='submit'>Register</button>
+            <span><a href="/">Login</a></span>
         </form>
         <Footer/>
        </div>
     );
 }
-export default Login;
+export default SignUp;

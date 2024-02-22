@@ -1,0 +1,46 @@
+/*navbar css */
+.navbar{
+  position:absolute;
+  width:100%;
+  Top:0;
+  left:0;
+  background-color: #22242A;
+}
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+  }
+  
+  .navbar ul li {
+    float: left;
+  }
+  
+  .navbar ul li a{
+    display: block;
+    color: rgb(231, 117, 10);
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    font-size: 20px;
+    font-family:serif;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    border:2px solid #ffffff;
+  }
+  
+  .navbar ul li a:hover {
+    background-color:rgb(231, 117, 10);
+    color: #ffffff; 
+  }
+  .navbar ul li a:active {
+    background-color:rgb(231, 117, 10);
+    color: #ffffff;
+  }
+  .logout{
+    float: right;
+    position:absolute;
+    right:0;
+  }
