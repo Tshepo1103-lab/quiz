@@ -1,6 +1,7 @@
 import React from 'react';
 import './Signup.css';
 import Footer from '../../components/footer/footer';
+// import {Link} from 'react-router-dom';
 
 function SignUp(){
     return(
@@ -13,6 +14,7 @@ function SignUp(){
             <input placeholder="confirm password" type='password' id='password' />
             <button type='submit'>Register</button>
             <span><a href="/">Login</a></span>
+            
         </form>
         <Footer/>
        </div>

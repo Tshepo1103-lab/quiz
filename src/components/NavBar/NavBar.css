@@ -5,7 +5,9 @@
   Top:0;
   left:0;
   background-color: #22242A;
+  height:60px;
 }
+
 .navbar ul {
     list-style-type: none;
     margin: 0;

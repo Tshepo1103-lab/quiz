@@ -1,3 +1,4 @@
+
 .text-content{
     padding:40px;
     margin:60px;
@@ -22,7 +23,7 @@ h1,h4{
         display: flex;
         justify-content: space-between;
         cursor: pointer;
-        box-shadow: 0 15px 25px rgba(0,0,0,0.08);
+        box-shadow: 0 15px 15px -5px rgba(0,0,0,0.08);
     }
 
         .cardBox .card .numbers {

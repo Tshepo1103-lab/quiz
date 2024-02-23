@@ -1,0 +1,13 @@
+[
+    {
+        "Question":"What is React?",
+        "Answers":{
+            "A": "A programming language",
+            "B": "A JavaScript library for building user interfaces",
+            "C": "A database management system",
+            "D": "An operating system",
+            "E": "A JavaScript library for building user interfaces"
+           
+        }
+    }
+]
