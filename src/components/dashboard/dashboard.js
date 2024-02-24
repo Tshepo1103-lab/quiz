@@ -3,7 +3,7 @@ import './dashboard.css'
 import NavBar  from '../NavBar/NavBar';
 import Footer from '../footer/footer';
 import {Link} from 'react-router-dom';
-import ReactQuiz from '../React/ReactPage';
+import Quiz from '../../Quiz/quiz';
 
 
 
@@ -14,7 +14,7 @@ function Dashboard() {
     <h1>ARE YOU READY TO UPSKILL YOURSELF?</h1>
     <h4>PICK A COURSE TO GET STARTED</h4>
         <div className="cardBox">
-           <Link to="/React" element={<ReactQuiz/>} className="custom-link">
+           <Link to="/React" element={<Quiz/>} className="custom-link">
            <div className="card">
                 <div>
                     <div className="numbers">

@@ -1,6 +1,6 @@
 import './App.css';
 import { useAuthStateContext } from './AuthProvider';
-import ReactQuiz from './components/React/ReactPage';
+import Quiz from './Quiz/quiz';
 import Dashboard from './components/dashboard/dashboard';
 import Login from './pages/Login/login';
 import {Route,Routes} from 'react-router-dom';
@@ -16,7 +16,7 @@ function App() {
       <Route path="/" element={<Dashboard/>}/>
       <Route path='/login' element={<Login/>} render={() =>
        status.Authenticated===true ? <Dashboard /> : <Link to="/login"/>}/>
-      <Route path='/React' element={<ReactQuiz/>}/>
+      <Route path='/React' element={<Quiz/>}/>
       <Route path='/SignUp' element={<Signup/>}/>
     </Routes>
   )

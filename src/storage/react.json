@@ -1,13 +1,92 @@
 [
     {
-        "Question":"What is React?",
-        "Answers":{
-            "A": "A programming language",
-            "B": "A JavaScript library for building user interfaces",
-            "C": "A database management system",
-            "D": "An operating system",
-            "E": "A JavaScript library for building user interfaces"
-           
-        }
+      "questionText": "What is React?",
+      "answerOptions": [
+        { "answerText": "A programming language", "isCorrect": false },
+        { "answerText": "A JavaScript library for building user interfaces", "isCorrect": true },
+        { "answerText": "A database management system", "isCorrect": false },
+        { "answerText": "An operating system", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "What is JSX in React?",
+      "answerOptions": [
+        { "answerText": "JavaScript Syntax Extension", "isCorrect": false },
+        { "answerText": "JavaScript XML", "isCorrect": true },
+        { "answerText": "Java Standard eXtension", "isCorrect": false },
+        { "answerText": "JavaScript eXtension", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "How do you conditionally render content in React?",
+      "answerOptions": [
+        { "answerText": "Using if-else statements", "isCorrect": false },
+        { "answerText": "Using switch statements", "isCorrect": false },
+        { "answerText": "Using the renderIf function", "isCorrect": false },
+        { "answerText": "Using conditional (ternary) operators", "isCorrect": true }
+      ]
+    },
+    {
+      "questionText": "What is the purpose of state in React?",
+      "answerOptions": [
+        { "answerText": "To store and manage data within a component", "isCorrect": true },
+        { "answerText": "To define the styles of a component", "isCorrect": false },
+        { "answerText": "To handle routing in a React application", "isCorrect": false },
+        { "answerText": "To manage external API calls", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "In React, what is a prop?",
+      "answerOptions": [
+        { "answerText": "A built-in HTML element", "isCorrect": false },
+        { "answerText": "A shorthand for \"property\"", "isCorrect": true },
+        { "answerText": "A function that returns a JSX element", "isCorrect": false },
+        { "answerText": "A special keyword for defining state", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "What is the purpose of the useEffect hook in React?",
+      "answerOptions": [
+        { "answerText": "To create custom hooks", "isCorrect": false },
+        { "answerText": "To manage side effects in functional components", "isCorrect": true },
+        { "answerText": "To handle user input events", "isCorrect": false },
+        { "answerText": "To define the initial state of a component", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "What does the virtual DOM in React help with?",
+      "answerOptions": [
+        { "answerText": "Improving the performance of DOM manipulation", "isCorrect": true },
+        { "answerText": "Creating virtual reality experiences", "isCorrect": false },
+        { "answerText": "Virtualizing the file system", "isCorrect": false },
+        { "answerText": "Simulating network communication", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "What is Redux used for in a React application?",
+      "answerOptions": [
+        { "answerText": "Styling components", "isCorrect": false },
+        { "answerText": "Managing the application state", "isCorrect": true },
+        { "answerText": "Handling routing logic", "isCorrect": false },
+        { "answerText": "Defining component structure", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "How can you pass data between sibling components in React?",
+      "answerOptions": [
+        { "answerText": "Using the this.state object", "isCorrect": false },
+        { "answerText": "Utilizing the context API", "isCorrect": true },
+        { "answerText": "Sending data via HTTP requests", "isCorrect": false },
+        { "answerText": "Using the localStorage object", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "What is the purpose of the key attribute in React when rendering a list of elements?",
+      "answerOptions": [
+        { "answerText": "Providing a unique identifier to each element in the list", "isCorrect": true },
+        { "answerText": "Assigning a CSS class to each list item", "isCorrect": false },
+        { "answerText": "Specifying the order of the elements in the list", "isCorrect": false },
+        { "answerText": "Enabling encryption for list items", "isCorrect": false }
+      ]
     }
-]
+  ]
