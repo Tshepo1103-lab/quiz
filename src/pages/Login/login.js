@@ -35,7 +35,7 @@ function Login() {
         <>
           <form onSubmit={submitForm}>
             <h2 className='SignInHeader'>Login</h2>
-            <img src="./img/Logo.jpg" alt="Alternate Text" />
+            <img src="./img/Logo.jpg" alt="Alternate Text" className='imgLogin'/>
 
             <input
               placeholder="username"

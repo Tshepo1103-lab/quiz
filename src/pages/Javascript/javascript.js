@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import Questions from '../storage/react.json';
+import Questions from '../../storage/react.json';
 import { Link } from 'react-router-dom';
-import './quiz.css';
-import Footer from '../components/footer/footer';
-import NavBar from '../components/NavBar/NavBar';
+import './javascript.css';
 
-function Quiz() {
+
+function Java() {
   const data = typeof Questions === 'string' ? JSON.parse(Questions) : Questions;
   const [current, setCurrent] = useState(0);
   const [mark, setMark] = useState(false);
@@ -59,9 +58,9 @@ function Quiz() {
           <Link to='/leaderboard'>View LeaderBoard</Link>
         </div>
       )}
-      <Footer/>
+      
     </div>
   );
 }
 
-export default Quiz;
+export default Java;

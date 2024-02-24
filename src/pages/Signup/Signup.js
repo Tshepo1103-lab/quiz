@@ -9,7 +9,7 @@ function SignUp(){
             <div className='containerLogin'>
                 <form> 
                     
-                    <h2 className='SignUpHeader'>Register<img src="./img/Logo.jpg" alt="Alternate Text"/></h2>
+                    <h2 className='SignUpHeader'>Register<img src="./img/Logo.jpg" alt="Alternate Text" className='imgUp'/></h2>
                     <input placeholder="username" type='text' id='username' />
                     <input placeholder="password" type='password' id='password' />
                     <input placeholder="confirm password" type='password' id='password' />
