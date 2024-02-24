@@ -1,11 +1,11 @@
-body {
+.Sign-Up {
     background-color:#e0f7fa;
     background-size: cover;
     background-repeat: no-repeat;
     font-family: sans-serif;
     height:100%;
 }
-h2 {
+.SignUpHeader{
     color:#ffff;
     text-align: center;
 }

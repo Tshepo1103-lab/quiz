@@ -27,13 +27,14 @@ function Login() {
   };
 
   return (
+    <login>
     <div className="containerLogin">
       {status.authenticated ? (
         <Dashboard />
       ) : (
         <>
           <form onSubmit={submitForm}>
-            <h2>Login</h2>
+            <h2 className='SignInHeader'>Login</h2>
             <img src="./img/Logo.jpg" alt="Alternate Text" />
 
             <input
@@ -61,6 +62,7 @@ function Login() {
         </>
       )}
     </div>
+    </login>
   );
 }
 

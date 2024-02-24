@@ -1,0 +1,40 @@
+.QuizContainer{
+    align-items: center;
+    justify-content: center;
+    padding:40px;
+    margin:60px;
+}
+.Button{
+    width: 500px;
+    height: 40px;
+    font-size: 20px;
+    border: none;
+    background-color: #ff6600;
+    outline: none;
+    height: 40px;
+    color:#ffff;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 15px 15px -5px rgba(0,0,0,0.08);
+}
+.Button:hover{
+    width: 500px;
+    height: 40px;
+    font-size: 20px;
+    border: none;
+    background-color: #ffff;
+    outline: none;
+    height: 40px;
+    color: #ff6600;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 15px 15px -5px rgba(0,0,0,0.08);
+}
+.score{
+    justify-content: center;
+    color:red;
+    text-align: center;
+}
+.scoreMessage{
+    color: #ff6600;
+}

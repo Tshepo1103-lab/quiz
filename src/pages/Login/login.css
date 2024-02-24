@@ -1,10 +1,10 @@
-body {
-    background-color:#e0f7fa;
+.Login{
+    /* background-color:#e0f7fa; */
     background-size: cover;
     font-family: sans-serif;
     height:100%;
 }
-h2 {
+.SignInHeader {
     color:#ffff;
     text-align: center;
 }
