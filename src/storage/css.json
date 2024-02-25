@@ -1,0 +1,92 @@
+[
+    {
+      "questionText": "What does CSS stand for?",
+      "answerOptions": [
+        { "answerText": "Counter Strike: Source", "isCorrect": false },
+        { "answerText": "Computer Style Sheets", "isCorrect": false },
+        { "answerText": "Colorful Style Sheets", "isCorrect": false },
+        { "answerText": "Cascading Style Sheets", "isCorrect": true }
+      ]
+    },
+    {
+      "questionText": "Which CSS property is used to change the text color of an element?",
+      "answerOptions": [
+        { "answerText": "color", "isCorrect": true },
+        { "answerText": "font-color", "isCorrect": false },
+        { "answerText": "text-color", "isCorrect": false },
+        { "answerText": "foreground-color", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "What is the purpose of the CSS property 'margin'?",
+      "answerOptions": [
+        { "answerText": "To add space inside an element", "isCorrect": false },
+        { "answerText": "To add space outside an element", "isCorrect": true },
+        { "answerText": "To set the background color of an element", "isCorrect": false },
+        { "answerText": "To change the font size of an element", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "In CSS, what does the 'box-sizing' property control?",
+      "answerOptions": [
+        { "answerText": "The box model of an element", "isCorrect": true },
+        { "answerText": "The positioning of an element", "isCorrect": false },
+        { "answerText": "The rotation of an element", "isCorrect": false },
+        { "answerText": "The transparency of an element", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "Which CSS selector targets all instances of a specific HTML element?",
+      "answerOptions": [
+        { "answerText": "ID Selector", "isCorrect": false },
+        { "answerText": "Class Selector", "isCorrect": false },
+        { "answerText": "Universal Selector", "isCorrect": true },
+        { "answerText": "Attribute Selector", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "What is the purpose of the CSS 'flexbox' layout?",
+      "answerOptions": [
+        { "answerText": "To create 3D effects on elements", "isCorrect": false },
+        { "answerText": "To control the layout and distribution of space among items in a container", "isCorrect": true },
+        { "answerText": "To apply styles to elements on hover", "isCorrect": false },
+        { "answerText": "To specify the font family of an element", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "Which CSS property is used to apply a shadow effect to an element?",
+      "answerOptions": [
+        { "answerText": "text-shadow", "isCorrect": true },
+        { "answerText": "box-shadow", "isCorrect": false },
+        { "answerText": "element-shadow", "isCorrect": false },
+        { "answerText": "shadow-effect", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "In CSS, what does the 'z-index' property control?",
+      "answerOptions": [
+        { "answerText": "The spacing between lines of text", "isCorrect": false },
+        { "answerText": "The stacking order of positioned elements", "isCorrect": true },
+        { "answerText": "The size of the font", "isCorrect": false },
+        { "answerText": "The color of the text", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "What does the CSS property 'opacity' control?",
+      "answerOptions": [
+        { "answerText": "The size of an element", "isCorrect": false },
+        { "answerText": "The transparency of an element", "isCorrect": true },
+        { "answerText": "The alignment of an element", "isCorrect": false },
+        { "answerText": "The border of an element", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "Which CSS property is used to create a transition effect on an element?",
+      "answerOptions": [
+        { "answerText": "transform", "isCorrect": false },
+        { "answerText": "transition", "isCorrect": true },
+        { "answerText": "animation", "isCorrect": false },
+        { "answerText": "gradient", "isCorrect": false }
+      ]
+    }
+  ]

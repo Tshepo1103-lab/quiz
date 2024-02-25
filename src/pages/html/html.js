@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Questions from '../../storage/html.json';
-import { Link } from 'react-router-dom';
+import Score from '../../components/score';
 import './html.css';
 
 
@@ -49,16 +49,7 @@ function Html() {
           ))}
         </div>
       )}
-
-      {mark && (
-        <div className='score'>
-          
-          <h2 className='scoreMessage'>{score<5?'Better luck next time!':'very impressive!'}</h2>
-          <p>Your Score: {score}</p>
-          <Link to='/leaderboard'>View LeaderBoard</Link>
-        </div>
-      )}
-      
+       <Score score={score} mark={mark}/>
     </div>
   );
 }

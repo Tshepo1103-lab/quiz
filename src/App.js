@@ -11,6 +11,7 @@ import NavBar from './components/NavBar/NavBar';
 import Java from './pages/Javascript/javascript';
 import Footer from './components/footer/footer';
 import Html from './pages/html/html';
+import Css from './pages/css/css';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path='/React' element={<Quiz/>}/>
         <Route path='/javascript' element={<Java/>}/>
         <Route path='/html' element={<Html/>}/>
+        <Route path='/css' element={<Css/>}/>
         <Route path='/SignUp' element={<Signup/>}/>
       </Routes>
       <Footer/>

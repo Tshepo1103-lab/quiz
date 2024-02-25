@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Questions from '../storage/react.json';
-import { Link } from 'react-router-dom';
+import Score from '../components/score';
 import './quiz.css';
-import Footer from '../components/footer/footer';
+
 
 
 function Quiz() {
@@ -50,16 +50,7 @@ function Quiz() {
           ))}
         </div>
       )}
-
-      {mark && (
-        <div className='score'>
-          
-          <h2 className='scoreMessage'>{score<5?'Better luck next time!':'very impressive!'}</h2>
-          <p>Your Score: {score}</p>
-          <Link to='/leaderboard'>View LeaderBoard</Link>
-        </div>
-      )}
-     
+      <Score score={score} mark={mark}/>
     </div>
   );
 }

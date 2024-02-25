@@ -1,6 +1,6 @@
 import React from 'react'
 import './dashboard.css'
-import {Form, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Quiz from '../../Quiz/quiz';
 import Html from '../../pages/html/html';
 import Java from '../../pages/Javascript/javascript';
@@ -53,6 +53,7 @@ function Dashboard() {
                 <img src="./img/html-icon.png" alt="something" className='quizIcon'/>
             </div>
             </Link>
+            <Link to="/css" alt="something" className='custom-link'>
              <div className="card">
                 <div>
                     <div className="numbers">
@@ -63,9 +64,9 @@ function Dashboard() {
                     </div>
                 </div>
                 <img src="./img/css-icon.png" alt="something" className='quizIcon'/>
-            </div>   
+            </div> 
+            </Link>  
         </div>
-        {/* <Footer/> */}
     </div>
   );
 }

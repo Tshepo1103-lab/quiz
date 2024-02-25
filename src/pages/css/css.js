@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Ques from '../../storage/javascript.json';
+import Questions from '../../storage/css.json';
 import Score from '../../components/score';
-import './javascript.css';
+import './css.css';
 
 
-function Java() {
-  const data = typeof Ques === 'string' ? JSON.parse(Ques) : Ques;
+function Css() {
+  const data = typeof Questions === 'string' ? JSON.parse(Questions) : Questions;
   const [current, setCurrent] = useState(0);
   const [mark, setMark] = useState(false);
   const [score, setScore] = useState(0);
@@ -49,9 +49,11 @@ function Java() {
           ))}
         </div>
       )}
-      <Score score={score} mark={mark}/> 
+      <Score score={score} mark={mark}/>
+      
+      
     </div>
   );
 }
 
-export default Java;
+export default Css;
