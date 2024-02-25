@@ -70,6 +70,11 @@ ul li{
   cursor: pointer;
   font-size: 18px;
 }
+.navbar ul li a:hover {
+  background-color:rgb(231, 117, 10);
+  color: #ffffff; 
+  padding:15px;
+}
 .toggle-icon{
   width:80px;
   height:75px;
@@ -77,6 +82,11 @@ ul li{
   margin-right:40px;
   margin-top: 5px;
   border-radius: 50%;
+}
+.custom-link{
+  text-decoration: none; 
+  color: inherit; 
+  font-size: 20px;
 }
 .dark .navbar{
   background-color: #000;

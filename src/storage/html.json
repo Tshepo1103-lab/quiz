@@ -1,0 +1,93 @@
+[
+    {
+      "questionText": "What is the purpose of the <head> tag in HTML?",
+      "answerOptions": [
+        { "answerText": "To define the main content of the document", "isCorrect": false },
+        { "answerText": "To contain metadata about the document", "isCorrect": true },
+        { "answerText": "To create a header section", "isCorrect": false },
+        { "answerText": "To define a hyperlink", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "Which HTML tag is used to define an unordered list?",
+      "answerOptions": [
+        { "answerText": "<ol>", "isCorrect": false },
+        { "answerText": "<li>", "isCorrect": false },
+        { "answerText": "<ul>", "isCorrect": true },
+        { "answerText": "<dl>", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "What does the HTML <br> tag stand for?",
+      "answerOptions": [
+        { "answerText": "Break", "isCorrect": true },
+        { "answerText": "Bold Red", "isCorrect": false },
+        { "answerText": "Block Return", "isCorrect": false },
+        { "answerText": "Browser Render", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "Which HTML attribute is used to define inline styles?",
+      "answerOptions": [
+        { "answerText": "style", "isCorrect": true },
+        { "answerText": "css", "isCorrect": false },
+        { "answerText": "design", "isCorrect": false },
+        { "answerText": "format", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "In HTML, which tag is used to create a hyperlink?",
+      "answerOptions": [
+        { "answerText": "<link>", "isCorrect": false },
+        { "answerText": "<a>", "isCorrect": true },
+        { "answerText": "<href>", "isCorrect": false },
+        { "answerText": "<url>", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "What is the purpose of the HTML <meta> tag?",
+      "answerOptions": [
+        { "answerText": "To define a heading", "isCorrect": false },
+        { "answerText": "To create a table", "isCorrect": false },
+        { "answerText": "To provide metadata about the document", "isCorrect": true },
+        { "answerText": "To insert an image", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "Which HTML element is used to define the structure of an HTML document?",
+      "answerOptions": [
+        { "answerText": "<body>", "isCorrect": false },
+        { "answerText": "<header>", "isCorrect": false },
+        { "answerText": "<html>", "isCorrect": true },
+        { "answerText": "<section>", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "What does the HTML <em> tag stand for?",
+      "answerOptions": [
+        { "answerText": "Emphasis", "isCorrect": true },
+        { "answerText": "End Marker", "isCorrect": false },
+        { "answerText": "Element", "isCorrect": false },
+        { "answerText": "Empower", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "What is the purpose of the <h1> to <h6> tags in HTML?",
+      "answerOptions": [
+        { "answerText": "To define a hyperlink", "isCorrect": false },
+        { "answerText": "To create a table", "isCorrect": false },
+        { "answerText": "To define header text with different levels of importance", "isCorrect": true },
+        { "answerText": "To insert an image", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "Which HTML attribute is used to provide additional information about an element?",
+      "answerOptions": [
+        { "answerText": "class", "isCorrect": false },
+        { "answerText": "style", "isCorrect": false },
+        { "answerText": "id", "isCorrect": false },
+        { "answerText": "title", "isCorrect": true }
+      ]
+    }
+  ]
+  

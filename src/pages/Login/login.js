@@ -52,7 +52,7 @@ function Login() {
               onChange={changePassword}
             />
             <button type="submit">Login</button>
-            <Link to="/SignUp">
+            <Link to="/SignUp" className='custom-link'>
               <span>
                 <a href="/SignUp">Register now</a>
               </span>

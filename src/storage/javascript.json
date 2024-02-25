@@ -1,0 +1,92 @@
+[
+    {
+      "questionText": "What is JavaScript primarily used for in web development?",
+      "answerOptions": [
+        { "answerText": "Styling web pages", "isCorrect": false },
+        { "answerText": "Creating server-side logic", "isCorrect": false },
+        { "answerText": "Enhancing the presentation of a webpage", "isCorrect": false },
+        { "answerText": "Adding interactivity to web pages", "isCorrect": true }
+      ]
+    },
+    {
+      "questionText": "How do you declare a variable in JavaScript?",
+      "answerOptions": [
+        { "answerText": "v myVar;", "isCorrect": false },
+        { "answerText": "variable myVar;", "isCorrect": false },
+        { "answerText": "var myVar;", "isCorrect": true },
+        { "answerText": "let myVar;", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "What is the purpose of the querySelector method in JavaScript?",
+      "answerOptions": [
+        { "answerText": "To select multiple elements by class name", "isCorrect": false },
+        { "answerText": "To retrieve the first element that matches a specified CSS selector", "isCorrect": true },
+        { "answerText": "To create a new HTML element", "isCorrect": false },
+        { "answerText": "To iterate over an array", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "What does the === operator check for in JavaScript?",
+      "answerOptions": [
+        { "answerText": "Value and type equality", "isCorrect": true },
+        { "answerText": "Value equality only", "isCorrect": false },
+        { "answerText": "Type equality only", "isCorrect": false },
+        { "answerText": "Reference equality", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "How do you comment a single line of code in JavaScript?",
+      "answerOptions": [
+        { "answerText": "// This is a comment", "isCorrect": true },
+        { "answerText": "/* This is a comment */", "isCorrect": false },
+        { "answerText": "<!-- This is a comment -->", "isCorrect": false },
+        { "answerText": "-- This is a comment", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "What is the purpose of the setTimeout function in JavaScript?",
+      "answerOptions": [
+        { "answerText": "To create asynchronous code", "isCorrect": true },
+        { "answerText": "To define CSS styles", "isCorrect": false },
+        { "answerText": "To handle user input events", "isCorrect": false },
+        { "answerText": "To manipulate the DOM", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "What is the concept of closures in JavaScript?",
+      "answerOptions": [
+        { "answerText": "A way to lock variables", "isCorrect": false },
+        { "answerText": "A mechanism to create private variables and functions", "isCorrect": true },
+        { "answerText": "A method for styling web pages", "isCorrect": false },
+        { "answerText": "An approach to handling exceptions", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "In JavaScript, what is the purpose of the 'this' keyword?",
+      "answerOptions": [
+        { "answerText": "Referring to the current HTML element", "isCorrect": false },
+        { "answerText": "Accessing the previous function in the call stack", "isCorrect": false },
+        { "answerText": "Referring to the current object or instance", "isCorrect": true },
+        { "answerText": "Defining a new variable", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "What is an arrow function in JavaScript?",
+      "answerOptions": [
+        { "answerText": "A function that performs mathematical operations", "isCorrect": false },
+        { "answerText": "A function expression using the '=> syntax", "isCorrect": true },
+        { "answerText": "A function that returns a boolean value", "isCorrect": false },
+        { "answerText": "A function for sorting arrays", "isCorrect": false }
+      ]
+    },
+    {
+      "questionText": "How do you handle errors in JavaScript?",
+      "answerOptions": [
+        { "answerText": "Using the try-catch statement", "isCorrect": true },
+        { "answerText": "Using the setTimeout function", "isCorrect": false },
+        { "answerText": "By ignoring them and letting the application crash", "isCorrect": false },
+        { "answerText": "By using the alert() function", "isCorrect": false }
+      ]
+    }
+  ]

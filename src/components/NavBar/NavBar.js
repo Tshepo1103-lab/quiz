@@ -32,13 +32,15 @@ import { useAuthActionContext } from '../../AuthProvider';
     <nav className='navbar'>
       {status.authenticated&&
       <ul>
-      <Link to='/'>Home</Link>
         <li>
-          Leaderboard    
+        <Link to='/' className='custom-link'>Home</Link>
+        </li>
+        <li>
+        <Link to='/' className='custom-link'>leaderboard</Link>
         </li>
         <li className='logout' onClick={(e)=>{logout()}}>
-         {status.authenticated&&<Link to='/Login'>Logout</Link>}   
-         {!status.authenticated&&<Link to='/Login'>Login</Link>}  
+         {status.authenticated&&<Link to='/Login' className='custom-link'>Logout</Link>}   
+         {!status.authenticated&&<Link to='/Login' className='custom-link'>Login</Link>}  
         </li>
      </ul>
       }

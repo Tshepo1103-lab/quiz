@@ -9,6 +9,8 @@ import Signup from './pages/Signup/Signup';
 import { useState,useEffect } from 'react';
 import NavBar from './components/NavBar/NavBar';
 import Java from './pages/Javascript/javascript';
+import Footer from './components/footer/footer';
+import Html from './pages/html/html';
 
 
 function App() {
@@ -29,8 +31,10 @@ function App() {
         status.Authenticated===true ? <Dashboard /> : <Link to="/login"/>}/>
         <Route path='/React' element={<Quiz/>}/>
         <Route path='/javascript' element={<Java/>}/>
+        <Route path='/html' element={<Html/>}/>
         <Route path='/SignUp' element={<Signup/>}/>
       </Routes>
+      <Footer/>
     </div>
 
   )

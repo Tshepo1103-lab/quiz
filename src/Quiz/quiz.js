@@ -3,7 +3,7 @@ import Questions from '../storage/react.json';
 import { Link } from 'react-router-dom';
 import './quiz.css';
 import Footer from '../components/footer/footer';
-import NavBar from '../components/NavBar/NavBar';
+
 
 function Quiz() {
   const data = typeof Questions === 'string' ? JSON.parse(Questions) : Questions;
@@ -59,7 +59,7 @@ function Quiz() {
           <Link to='/leaderboard'>View LeaderBoard</Link>
         </div>
       )}
-      <Footer/>
+     
     </div>
   );
 }

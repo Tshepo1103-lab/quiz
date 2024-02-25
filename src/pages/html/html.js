@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Ques from '../../storage/javascript.json';
+import Questions from '../../storage/html.json';
 import { Link } from 'react-router-dom';
-import './javascript.css';
+import './html.css';
 
 
-function Java() {
-  const data = typeof Ques === 'string' ? JSON.parse(Ques) : Ques;
+function Html() {
+  const data = typeof Questions === 'string' ? JSON.parse(Questions) : Questions;
   const [current, setCurrent] = useState(0);
   const [mark, setMark] = useState(false);
   const [score, setScore] = useState(0);
@@ -63,4 +63,4 @@ function Java() {
   );
 }
 
-export default Java;
+export default Html;
