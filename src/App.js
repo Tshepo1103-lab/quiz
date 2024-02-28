@@ -13,6 +13,7 @@ import Footer from './components/footer/footer';
 import Html from './pages/html/html';
 import Css from './pages/css/css';
 import NewQuiz from './pages/NewQuiz/newQuiz';
+import Leaderboard from './components/Leaderboard';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route path='/html' element={<Html/>}/>
         <Route path='/css' element={<Css/>}/>
         <Route path='/newquiz' element={<NewQuiz/>}/>
+        <Route path='/Leaderboard' element={<Leaderboard/>}/>
         <Route path='/SignUp' element={<Signup/>}/>
       </Routes>
       <Footer/>
