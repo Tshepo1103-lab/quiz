@@ -12,7 +12,8 @@ function Score({ score, mark }) {
   function handleScore() {
     let entry = {
       name: "Tshepotest",
-      score:score 
+      score:score,
+      quizType:"react"
     };
 
     const newHighScores = [...highScores,entry].sort((a, b) => b.score - a.score);

@@ -36,7 +36,7 @@ import { useAuthActionContext } from '../../AuthProvider';
         <Link to='/' className='custom-link'>Home</Link>
         </li>
         <li>
-        <Link to='/' className='custom-link'>leaderboard</Link>
+        <Link to='/Leaderboard' className='custom-link'>leaderboard</Link>
         </li>
         <li className='logout' onClick={(e)=>{logout()}}>
          {status.authenticated&&<Link to='/Login' className='custom-link'>Logout</Link>}   

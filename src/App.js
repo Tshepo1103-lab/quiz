@@ -13,7 +13,7 @@ import Footer from './components/footer/footer';
 import Html from './pages/html/html';
 import Css from './pages/css/css';
 import NewQuiz from './pages/NewQuiz/newQuiz';
-import Leaderboard from './components/Leaderboard';
+import Leaderboard from './components/Leaderboard/Leaderboard';
 
 
 function App() {

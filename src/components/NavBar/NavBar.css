@@ -23,6 +23,7 @@ ul li{
 .navbar ul li a:hover {
   background-color:rgb(231, 117, 10);
   color: #ffffff; 
+  border-bottom:rgb(231, 117, 10);
   padding:15px;
   border-radius: 15px;
   font-size:25px;
