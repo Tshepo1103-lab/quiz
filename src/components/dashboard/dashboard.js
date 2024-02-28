@@ -5,11 +5,9 @@ import Quiz from '../../Quiz/quiz';
 import Html from '../../pages/html/html';
 import Java from '../../pages/Javascript/javascript';
 import Questions from '../../storage/react.json';
-import NewQuiz from '../../pages/NewQuiz/newQuiz';
 
 
 function Dashboard() {
-  const data = typeof Questions === 'string' ? JSON.parse(Questions) : Questions;
 
   return (
     <div className="text-content">
@@ -33,7 +31,7 @@ function Dashboard() {
           <div className="card">
                 <div>
                     <div className="numbers">
-                     JAVASCRIPT
+                     JS
                     </div>
                     <div className="cardName">
                       BEGINNER
@@ -68,20 +66,7 @@ function Dashboard() {
                 </div>
                 <img src="./img/css-icon.png" alt="something" className='quizIcon'/>
             </div> 
-            </Link>  
-            <Link to="/newQuiz" element={<NewQuiz Questions={data}/>} alt="something" className='custom-link'>
-             <div className="card">
-                <div>
-                    <div className="numbers">
-                    New Quiz
-                    </div>
-                    <div className="cardName">
-                      BEGINNER
-                    </div>
-                </div>
-                <img src="./img/css-icon.png" alt="something" className='quizIcon'/>
-            </div> 
-            </Link>  
+            </Link>    
         </div>
     </div>
   );

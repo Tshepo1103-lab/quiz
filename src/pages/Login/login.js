@@ -1,68 +1,55 @@
 import React, { useState } from 'react';
-import './login.css';
 import { Link } from 'react-router-dom';
-import { useAuthActionContext, useAuthStateContext } from '../../AuthProvider/index';
-import Dashboard from '../../components/dashboard/dashboard';
-import Footer from '../../components/footer/footer';
+import { useAuthAction, useAuthState } from '../../providers/AuthProvider'; // Update with the correct path
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const status = useAuthStateContext(); // Indicates if the user is authenticated
-  const { login } = useAuthActionContext(); // Authentication functions
 
-  const submitForm = (e) => {
+  const { isAuthenticated } = useAuthState();
+  const { loginUser} = useAuthAction();
+
+  const signIn = async (e) => {
     e.preventDefault();
-    login(username, password);
-    setUsername('');
-    setPassword('');
-  };
 
-  const changeUsername = (e) => {
-    setUsername(e.target.value);
-  };
+    try {
+      // Call the loginUser function provided by the context
+      await loginUser({ username, password });
 
-  const changePassword = (e) => {
-    setPassword(e.target.value);
+      // The loginUser function should handle authentication, so you can check isAuthenticated if needed
+      if (isAuthenticated) {
+        // User is authenticated, handle the logic (redirect, etc.)
+        console.log("User is authenticated");
+      } else {
+        // Authentication failed
+        console.log("Authentication failed");
+      }
+
+    } catch (error) {
+      console.error("Error during login:", error);
+      // Handle the error, e.g., show an error message to the user
+    }
   };
 
   return (
-    <login>
-    <div className="containerLogin">
-      {status.authenticated ? (
-        <Dashboard />
-      ) : (
-        <>
-          <form onSubmit={submitForm}>
-            <h2 className='SignInHeader'>Login</h2>
-            <img src="./img/Logo.jpg" alt="Alternate Text" className='imgLogin'/>
+    <div>
+      {/* Your login form */}
+      <form onSubmit={signIn}>
+        <label>
+          Username:
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        </label>
+        <br />
+        <button type="submit">Login</button>
+      </form>
 
-            <input
-              placeholder="username"
-              type="text"
-              id="username"
-              value={username}
-              onChange={changeUsername}
-            />
-            <input
-              placeholder="password"
-              type="password"
-              id="password"
-              value={password}
-              onChange={changePassword}
-            />
-            <button type="submit">Login</button>
-            <Link to="/SignUp" className='custom-link'>
-              <span>
-                <a href="/SignUp">Register now</a>
-              </span>
-            </Link>
-          </form>
-          <Footer />
-        </>
-      )}
+      <Link to="/signup">Don't have an account? Sign up here.</Link>
     </div>
-    </login>
   );
 }
 

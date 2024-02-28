@@ -1,51 +1,29 @@
 import React, { useState } from 'react';
 import './Signup.css';
-import Footer from '../../components/footer/footer';
+import { useAuthAction } from '../../providers/AuthProvider'; // Update with the correct path
 import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
-    const [name, setFirstName] = useState("");
-    const [surname, setLastName] = useState("");
-    const [emailAddress, setEmail] = useState("");
-    const [userName, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [name, setFirstName] = useState('');
+    const [surname, setLastName] = useState('');
+    const [emailAddress, setEmail] = useState('');
+    const [UserName, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const history = useNavigate();
+
+    const { createUser } = useAuthAction();
 
     async function register(e) {
         e.preventDefault();
 
         try {
-            const item = {
-                name,
-                surname,
-                emailAddress,
-                userName,
-                password,
-                isActive: true,
-                roleNames: ["admin"]
-            };
+            // Call the createUser function provided by the context
+            await createUser({ name, surname, emailAddress, UserName, password, isActive: true, roleNames: ["admin"] });
 
-            const result = await fetch("https://localhost:44311/api/services/app/User/Create", {
-                method: 'POST',
-                body: JSON.stringify(item),
-                headers: {
-                    "Content-Type": 'application/json',
-                    "Accept": 'text/plain',
-                    "Authorization": "Bearer your_token_here",
-                    "X-XSRF-TOKEN": "your_xsrf_token_here"
-                }
-            });
-
-            if (!result.ok) {
-                throw new Error(`HTTP error! Status: ${result.status}`);
-            }
-
-            const data = await result.json();
-            localStorage.setItem("user-info", JSON.stringify(data));
-            history("/Login");
-
+            // Registration successful, redirect to login page
+            history('/Login');
         } catch (error) {
-            console.error("Error during signup:", error);
+            console.error('Error during signup:', error);
             // Handle the error, e.g., show an error message to the user
         }
     }
@@ -63,7 +41,7 @@ function SignUp() {
                     <button type='submit'>Register</button>
                     <span><a href="/">Login</a></span>
                 </form>
-                <Footer />
+                {/* You may keep the Footer component if it's necessary */}
             </div>
         </div>
     );

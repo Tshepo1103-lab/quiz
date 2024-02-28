@@ -1,9 +1,10 @@
 import {createAction} from 'redux-actions';
 
-export const AuthActionsEnum={
-    login:'LOGIN',
-    logout:'LOGOUT'
-}
+export const AuthActionEnums = {
+  login: 'LOGIN',
+  createUser: 'CREATE_USER',
+};
 
-export const authLoginAction=createAction(AuthActionsEnum.login,(payload)=>payload);
-export const authLogoutAction=createAction(AuthActionsEnum.logout)
+// Define action creators
+export const loginAction = createAction(AuthActionEnums.login, (username, password) => ({ payload: { username, password } }));
+export const createUserAction = createAction(AuthActionEnums.createUser, (username, password) => ({ payload: { username, password } }));

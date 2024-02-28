@@ -1,39 +1,116 @@
-import { AuthActionContext,AuthStateContext } from "./context";
-import { authLoginAction,authLogoutAction} from "./actions";
-import { reducer } from './reducer';
-import { useContext, useReducer} from "react";
+import { useContext, useReducer, useMemo } from "react";
+import { AuthActionContext, AuthStateContext } from './context';
+import { authReducer } from './reducer';
+import { loginAction, createUserAction } from './actions';
+import { message } from "antd";
 
-export const AuthProvider=(props)=>{
-    const [state,dispatch]=useReducer(reducer,{authenticated:false})
 
-    const getState=()=>{
-        return {...state};
+const AuthProvider = (props) => {
+  const [state, dispatch] = useReducer(authReducer, {
+    user: null,
+    isAuthenticated: false,
+  });
+
+  const authConfig = useMemo(
+    () => ({ user: state.user, isAuthenticated: state.isAuthenticated }),
+    [state]
+  );
+
+  const loginUserHttp = async (payload) => {
+    try {
+      const response = await fetch("https://localhost:44311/api/TokenAuth/Authenticate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      throw new Error(`Error during HTTP request: ${error.message}`);
     }
-    const login=(username,password)=>{
-        // console.log(username,password)
-        dispatch(authLoginAction({username,password}));
+  };
+  
+  const loginUser = async (payload) => {
+    try {
+      const response = await loginUserHttp(payload);
+  
+      if (response.success) {
+        localStorage.setItem("token", response.result.accessToken);
+        dispatch(loginAction(response.result));
+        console.log("User ID:", response.result);
+        window.location.href = "/Deshboard";
+      } else {
+        message.error("Invalid username or password");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      message.error("Login failed");
     }
+  };
+  const createUser = async (userRegInfo) => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch(
+        "https://localhost:44311/api/services/app/Person/Create",
+        {
+          method: "POST",
+          cache: "no-cache",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(userRegInfo),
+        }
+      );
 
-    const logout=()=>{
-        // console.log(username,password)
-        dispatch(authLogoutAction());
+      if (response.ok) {
+        const data = await response.json();
+        dispatch(createUserAction(userRegInfo));
+        message.success("User registration successful", data);
+        window.location.href = "/Login";
+      } else {
+        const errorData = await response.json();
+        message.error("User registration failed", errorData);
+      }
+    } catch (error) {
+      console.error("Error during user registration:", error);
+      message.error("User registration failed");
     }
-    
-    return (
-        <AuthStateContext.Provider value={getState()}>
-            <AuthActionContext.Provider value={{login,logout}}>
-                 {props.children}
-            </AuthActionContext.Provider>
-        </AuthStateContext.Provider>
-    )
-}
-export const useAuthStateContext=()=>{
-    const context=useContext(AuthStateContext);
-    return (context?context:()=>alert('Error: Cannot access out AuthProvider'));
-}
-export const useAuthActionContext=()=>{
-    const context=useContext(AuthActionContext);
-    return (context?context:()=>alert('Error: Cannot access out AuthProvider'));
+  };
+  return (
+    <AuthStateContext.Provider value={authConfig}>
+      <AuthActionContext.Provider value={{ loginUser, createUser }}>
+        {props.children}
+      </AuthActionContext.Provider>
+    </AuthStateContext.Provider>
+  );
+};
+
+function useAuthState() {
+  const context = useContext(AuthStateContext);
+  if (context === undefined) {
+    throw new Error("useAuthState must be used within an AuthProvider");
+  }
+  return context;
 }
 
-export const useAuth=()=>([useAuthStateContext(),useAuthActionContext]);
+function useAuthAction() {
+  const context = useContext(AuthActionContext);
+  if (context === undefined) {
+    throw new Error("useAuthAction must be used within an AuthProvider");
+  }
+  return context;
+}
+
+function useAuth() {
+  return [useAuthState(), useAuthAction()];
+}
+
+export { AuthProvider, useAuthState, useAuthAction, useAuth };
