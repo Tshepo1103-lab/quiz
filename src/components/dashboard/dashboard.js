@@ -1,74 +1,60 @@
-import React from 'react'
-import './dashboard.css'
-import {Link} from 'react-router-dom';
+// Dashboard.jsx
+
+import React,{useState} from 'react';
+import './dashboard.css';
+import { Link } from 'react-router-dom';
 import Quiz from '../../Quiz/quiz';
 import Html from '../../pages/html/html';
 import Java from '../../pages/Javascript/javascript';
-import Questions from '../../storage/react.json';
+import DashBoardData from './QuizTitles';
+
+import './dashboard.css';
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"></link>
 
 
 function Dashboard() {
-
+  const { data, loading } = DashBoardData();
+  
   return (
-    <div className="text-content">
-    <h1>ARE YOU READY TO UPSKILL YOURSELF?</h1>
-    <h4>Ctrl + Alt + Quiz: Reboot Your Brain Cells!</h4>
+    loading ? 
+      <h3>Loading Categories</h3> :
+      <div className="text-content">
+        <h1>ARE YOU READY TO UPSKILL YOURSELF?</h1>
+        <h4>Ctrl + Alt + Quiz: Reboot Your Brain Cells!!</h4>
         <div className="cardBox">
-           <Link to="/React" element={<Quiz/>} className="custom-link">
-           <div className="card">
-                <div>
-                    <div className="numbers">
-                     React
-                    </div>
-                    <div className="cardName">
-                      BEGINNER
-                    </div>
-                </div>
-                <img src="./img/react-icon.png" alt="something" className='quizIcon'/>
-            </div>
-           </Link>
-           <Link to="/javascript"  element={<Java/>} className='custom-link'>
-          <div className="card">
-                <div>
-                    <div className="numbers">
-                     JS
-                    </div>
-                    <div className="cardName">
-                      BEGINNER
-                    </div>                   
-                   
-                </div>
-                <img src="./img/javascript-icon.png" alt="something" className='quizIcon'/>
-            </div>   
-            </Link>
-            <Link to="/html"  element={<Html/>} className='custom-link'>
-            <div className="card">
-                <div>
-                    <div className="numbers">
-                     HTML
-                    </div>
-                    <div className="cardName">
-                     BEGINNER
-                    </div>
-                </div>
-                <img src="./img/html-icon.png" alt="something" className='quizIcon'/>
-            </div>
-            </Link>
-            <Link to="/css" alt="something" className='custom-link'>
-             <div className="card">
-                <div>
-                    <div className="numbers">
-                    CSS
-                    </div>
-                    <div className="cardName">
-                      BEGINNER
-                    </div>
-                </div>
-                <img src="./img/css-icon.png" alt="something" className='quizIcon'/>
-            </div> 
-            </Link>    
+          
+           
+            {data.result.items.map((item, index) => (
+             
+            generateCard(item.name,"BEGINNER", "./img/react-icon.png", `/${item.name}` , <Quiz id={item.id}/>, index)
+            // <li key={item.id}>{item.name}</li>
+          ))}
+           
+        
+      
+          {/* {generateCard("React JS", "BEGINNER", "./img/react-icon.png", "/React", <Quiz />)}
+          {generateCard("Java Script", "BEGINNER", "./img/javascript-icon.png", "/javascript", <Java />)}
+          {generateCard("HTML 5", "BEGINNER", "./img/html-icon.png", "/html", <Html />)}
+          {generateCard("CSS", "BEGINNER", "./img/css-icon.png", "/css")} */}
         </div>
-    </div>
+      </div>
   );
 }
+
+function generateCard(title, level, iconSrc, linkTo, element,id) {
+  return (
+    <Link to={linkTo} /*element={element}*/ className="custom-link" key={title}>
+      <div className="card" key={id}>
+        <div>
+          <div className="numbers">{title}</div>
+          <div className="cardName">{level}</div>
+          {/* <div className="cardName"> MY ID IS {id}</div> */}
+        </div>
+        {React.cloneElement(element, { id: id })}
+        <img src={iconSrc} alt={title} className="quizIcon" />
+      </div>
+    </Link>
+  );
+}
+
 export default Dashboard;

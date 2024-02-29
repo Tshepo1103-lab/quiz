@@ -1,20 +1,30 @@
 import React from 'react';
+import { GoogleOutlined, FacebookOutlined, InstagramOutlined } from '@ant-design/icons';
+
 import './footer.css';
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
+
 
 function Footer() {
     return (
+        
         <div className="footer-container">
-            <div className="main-footer-container">
-                <ul>
-                    <li><img src="./img/google.png" alt="Googlepic"/></li>
-                    <li><img src="./img/facebook.png" alt="Googlepic"/></li>
-                    <li><img src="./img/instagram.png" alt="Googlepic"/></li>
-                    <li><h3 className="footer-header">QuizBox</h3></li>
-                    
-                </ul>
-                
+                        <div className="quiz-box">
+            <h2>QuizBox</h2>
             </div>
+            <div className="main-footer-container">
+                <h3>Follow us</h3>
+                <ul>
+                    <li><GoogleOutlined /></li>
+                    <li><FacebookOutlined /></li>
+                    <li><InstagramOutlined /></li>
+                </ul>
+            </div>
+
+            
         </div>
+        
+  
     );
 }
 

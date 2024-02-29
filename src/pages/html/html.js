@@ -35,7 +35,7 @@ function Html() {
 
       {!mark && (
         <div>
-          {data[current].answerOptions.map((answer, answerIndex) => (
+            {data[current].answerOptions.map((answer, answerIndex) => (
             <ul key={answerIndex}>
               <li>
                 <input
