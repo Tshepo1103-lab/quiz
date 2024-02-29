@@ -15,7 +15,7 @@ const Quiz=(props)=> {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://localhost:44311/api/services/app/Question/GetAllIncluding?quizId=${props}`);
+        const response = await fetch("https://localhost:44311/api/services/app/Question/GetAllIncluding?quizId=6592c795-20e8-4699-1d64-08dc38a5ff4a");
         const json = await response.json();
         setData(json.result);
       } catch (error) {
@@ -26,7 +26,7 @@ const Quiz=(props)=> {
     };
 
     fetchData();
-  }, []);
+  },[]);
 
 useEffect(() => {
   const fetchAnswer = async () => {
@@ -49,7 +49,7 @@ useEffect(() => {
   if (data[current]) {
     fetchAnswer();
   }
-}, [current]);
+}, [data,current]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -109,10 +109,10 @@ useEffect(() => {
                 </li>
               </ul>
             ))}
-            <div>
+            {/* <div>
               <button className='Button' onClick={handlePrevious} disabled={current === 0}>Previous</button>
               <button className='Button' onClick={handleNext} disabled={current === data.length - 1}>Next</button>
-            </div>
+            </div> */}
           </div>
         )}
         <Score score={score} mark={mark}/>

@@ -14,7 +14,7 @@ import './dashboard.css';
 
 function Dashboard() {
   const { data, loading } = DashBoardData();
-  
+  console.log("data:",data)
   return (
     loading ? 
       <h3>Loading Categories</h3> :
@@ -26,12 +26,12 @@ function Dashboard() {
            
             {data.result.items.map((item, index) => (
              
-            generateCard(item.name,"BEGINNER", "./img/react-icon.png", `/${item.name}` , <Quiz id={item.id}/>, index)
+            generateCard(item.name,"BEGINNER", "./img/react-icon.png", `/${item.name}` , <Quiz/>, item.id,index)
             // <li key={item.id}>{item.name}</li>
           ))}
            
         
-      
+          
           {/* {generateCard("React JS", "BEGINNER", "./img/react-icon.png", "/React", <Quiz />)}
           {generateCard("Java Script", "BEGINNER", "./img/javascript-icon.png", "/javascript", <Java />)}
           {generateCard("HTML 5", "BEGINNER", "./img/html-icon.png", "/html", <Html />)}
@@ -41,16 +41,17 @@ function Dashboard() {
   );
 }
 
-function generateCard(title, level, iconSrc, linkTo, element,id) {
+function generateCard(title, level, iconSrc, linkTo, element,id,index) {
+  console.log(id)
   return (
-    <Link to={linkTo} /*element={element}*/ className="custom-link" key={title}>
+    <Link to={{ pathname: linkTo, state: { id } }} className="custom-link" key={title}>
       <div className="card" key={id}>
         <div>
           <div className="numbers">{title}</div>
           <div className="cardName">{level}</div>
           {/* <div className="cardName"> MY ID IS {id}</div> */}
         </div>
-        {React.cloneElement(element, { id: id })}
+        {/* {React.cloneElement(element, { id: id })} */}
         <img src={iconSrc} alt={title} className="quizIcon" />
       </div>
     </Link>

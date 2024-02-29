@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Signup.css';
-import { useAuthAction } from '../../providers/AuthProvider'; // Update with the correct path
+// import { useAuthAction } from '../../AuthProvider'; 
 import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
@@ -11,21 +11,21 @@ function SignUp() {
     const [password, setPassword] = useState('');
     const history = useNavigate();
 
-    const { createUser } = useAuthAction();
+    // const { createUser } = useAuthAction();
 
     async function register(e) {
         e.preventDefault();
 
-        try {
-            // Call the createUser function provided by the context
-            await createUser({ name, surname, emailAddress, UserName, password, isActive: true, roleNames: ["admin"] });
+        // try {
+        //     // Call the createUser function provided by the context
+        //     await createUser({ name, surname, emailAddress, UserName, password, isActive: true, roleNames: ["admin"] });
 
-            // Registration successful, redirect to login page
-            history('/Login');
-        } catch (error) {
-            console.error('Error during signup:', error);
-            // Handle the error, e.g., show an error message to the user
-        }
+        //     // Registration successful, redirect to login page
+        //     history('/Login');
+        // } catch (error) {
+        //     console.error('Error during signup:', error);
+        //     // Handle the error, e.g., show an error message to the user
+        // }
     }
 
     return (
