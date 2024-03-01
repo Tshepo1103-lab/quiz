@@ -31,7 +31,7 @@ function SignUp() {
     return (
         <div className='Sign-Up'>
             <div className='containerLogin'>
-                <form onSubmit={register}>
+                <form className='formSignup' onSubmit={register}>
                     <h2 className='SignUpHeader'>Register<img src="./img/Logo.jpg" alt="Alternate Text" className='imgUp' /></h2>
                     <input onChange={(e) => setFirstName(e.target.value)} placeholder="Firstname" type='text' id='firstname' />
                     <input onChange={(e) => setLastName(e.target.value)} placeholder="Lastname" type='text' id='lastname' />

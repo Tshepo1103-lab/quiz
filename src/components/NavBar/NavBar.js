@@ -2,8 +2,7 @@
 import React, { useState } from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
-import { useAuthStateContext } from "../../AuthProvider";
-import { useAuthActionContext } from "../../AuthProvider";
+import AuthContext from '../../AuthProvider/context';
 import { LogoutOutlined } from "@ant-design/icons";
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
 
@@ -12,8 +11,8 @@ function NavBar({ theme, setTheme }) {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
 
-  const status = useAuthStateContext();
-  const { logout } = useAuthActionContext();
+  // const status = useAuthStateContext();
+  // const { logout } = useAuthActionContext();
   const toggle_light = "./img/light.jpg";
   const toggle_dark = "./img/dark.jpg";
 

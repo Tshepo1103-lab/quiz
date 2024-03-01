@@ -1,54 +1,40 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useAuthAction, useAuthState } from '../../providers/AuthProvider'; // Update with the correct path
+import { Link, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../AuthProvider/context';
+import "./login.css";
+import Dashboard from '../../components/dashboard/dashboard';
 
 function Login() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const { isAuthenticated } = useAuthState();
-  const { loginUser} = useAuthAction();
+  const { user, login, logout } = useContext(AuthContext);
+  console.log("passed down user", user);
 
-  const signIn = async (e) => {
+  function makeLogin(e) {
     e.preventDefault();
-
-    try {
-      // Call the loginUser function provided by the context
-      await loginUser({ username, password });
-
-      // The loginUser function should handle authentication, so you can check isAuthenticated if needed
-      if (isAuthenticated) {
-        // User is authenticated, handle the logic (redirect, etc.)
-        console.log("User is authenticated");
-      } else {
-        // Authentication failed
-        console.log("Authentication failed");
-      }
-
-    } catch (error) {
-      console.error("Error during login:", error);
-      // Handle the error, e.g., show an error message to the user
-    }
-  };
+    if (username.length > 0) {
+        login({
+            username,
+            password
+        });
+    } 
+  }
 
   return (
-    <div>
-      {/* Your login form */}
-      <form onSubmit={signIn}>
-        <label>
-          Username:
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <br />
-        <button type="submit">Login</button>
-      </form>
-
-      <Link to="/signup">Don't have an account? Sign up here.</Link>
+    <div className='containerLogin'>
+      {user.id !== 0 ?
+        navigate('/') :
+        <form className='formSignin' onSubmit={makeLogin}>
+          <h2 className='SignInHeader'>Login<img src="./img/Logo.jpg" alt="Alternate Text" className='imgLogin'/></h2>
+          <input id="username" placeholder="username" type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+          <input id="username" placeholder="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <button type="submit">Login</button>
+          <Link to="/signup" className='custom-link'><span>Don't have an account? Sign up here.</span></Link>
+        </form>
+      }
     </div>
   );
 }

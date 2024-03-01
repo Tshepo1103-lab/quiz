@@ -80,16 +80,15 @@ span{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-span a{
     color:  black;
     text-decoration: none; 
     font-size: 20px;
 }
-span a:hover {
+
+span:hover {
     text-decoration: underline;
 }
-.dark span a{
+.dark span {
     color: #ffff;
     text-decoration: none; 
     font-size: 20px;
@@ -102,3 +101,8 @@ span a:hover {
 
 
 
+@media screen and (max-width: 600px ) {
+    .formSignin,.containerLogin{
+            background-color:#e00a0a;
+    }
+}

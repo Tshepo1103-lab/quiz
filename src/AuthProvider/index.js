@@ -1,39 +1,94 @@
-import { AuthActionContext,AuthStateContext } from "./context";
-import { authLoginAction,authLogoutAction} from "./actions";
-import { reducer } from './reducer';
-import { useContext, useReducer} from "react";
+import React, { useMemo, useReducer } from "react";
+import { AuthContext } from './context'; 
+import { loginReducer } from './reducer';
+import { loginAction, setIdAction, updateDetailsAction } from "./actions";
 
-export const AuthProvider=(props)=>{
-    const [state,dispatch]=useReducer(reducer,{authenticated:false})
+export const AuthProvider = (props) => {
+    // we get our state from the reducer and we store it in the provider
+    // then we can decide to pass it down to the descendants
+    const [user, dispatch] = useReducer(loginReducer, {username: "", password: "", id: 0, name: "", surname: ""});
 
-    const getState=()=>{
-        return {...state};
-    }
-    const login=(username,password)=>{
-        // console.log(username,password)
-        dispatch(authLoginAction({username,password}));
+    const latestUser = useMemo(() => {
+        console.log("memoized user", user);
+        return {
+            ...user
+        };
+    }, [user]);
+
+    // we dispatch the action with the desired new state
+    function login(newUser) {
+        console.log("Dispatching", newUser);
+
+        const url = 'https://localhost:44311/api/TokenAuth/Authenticate';
+        const body = {
+            userNameOrEmailAddress: newUser.username,
+            password: newUser.password,
+            rememberClient: true
+        };
+        const headers = {
+            'Content-Type': 'application/json',
+        };
+
+        fetch(url, {
+            headers,
+            body: JSON.stringify(body),
+            method: "POST",
+            mode: 'cors'
+        }).then(response => {
+            console.log(response);
+            //..
+            return response.json();
+        }).then(json => {
+            if (json.success) {
+                json = json.result;
+                const accessToken = json.accessToken;
+                const id = json.id;
+
+                localStorage.setItem("accessToken", accessToken);
+                dispatch(setIdAction(id));
+
+                const token = localStorage.getItem("accessToken")
+                // ask for profile              
+                const url = 'https://localhost:44311/api/services/app/Session/GetCurrentLoginInformations';
+                const headers= {
+                    Authorization: `Bearer ${token}`
+                };
+                fetch(url, {
+                    headers,
+                    method: "GET"
+                }).then(res => {
+                    console.log(res);
+                    return res.json();
+                }).then(json => {
+                    console.log(json.result.user);
+                    dispatch(updateDetailsAction(json.result.user));
+                }).catch(err => {
+                    console.log("could get profile");
+                })
+            }
+        })
+        .catch(err => {
+            console.log("there was an error");
+        })
+
+        dispatch(loginAction(newUser));
     }
 
-    const logout=()=>{
-        // console.log(username,password)
-        dispatch(authLogoutAction());
+    function logout() {
+        console.log("Logging Out");
+        dispatch(loginAction({username: "", password: "", id: 0}));
+        localStorage.clear();
+        console.log(user);
     }
-    
+
+    /**
+     * Passing down the user object and the login function to the descendants
+     */
     return (
-        <AuthStateContext.Provider value={getState()}>
-            <AuthActionContext.Provider value={{login,logout}}>
-                 {props.children}
-            </AuthActionContext.Provider>
-        </AuthStateContext.Provider>
-    )
+        <AuthContext.Provider
+            value={{user: latestUser, login, logout}} 
+        >
+            {props.children}
+        </AuthContext.Provider>
+    );
 }
-export const useAuthStateContext=()=>{
-    const context=useContext(AuthStateContext);
-    return (context?context:()=>alert('Error: Cannot access out AuthProvider'));
-}
-export const useAuthActionContext=()=>{
-    const context=useContext(AuthActionContext);
-    return (context?context:()=>alert('Error: Cannot access out AuthProvider'));
-}
-
-export const useAuth=()=>([useAuthStateContext(),useAuthActionContext]);

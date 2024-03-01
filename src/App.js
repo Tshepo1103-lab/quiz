@@ -1,5 +1,5 @@
 import './App.css';
-import { useAuthStateContext } from './AuthProvider';
+// import { useAuthStateContext } from './AuthProvider';
 import Quiz from './Quiz/quiz';
 import Dashboard from './components/dashboard/dashboard';
 import Login from './pages/Login/login';
@@ -16,7 +16,7 @@ import Leaderboard from './components/Leaderboard/Leaderboard';
 
 
 function App() {
-  const status= useAuthStateContext();
+  // const status= useAuthStateContext();
   const currentTheme=localStorage.getItem('currentTheme');
   const [theme,setTheme]=useState(currentTheme?currentTheme:'light')
   useEffect(()=>{
@@ -29,8 +29,7 @@ function App() {
       <NavBar theme={theme} setTheme={setTheme}/>
      <Routes>
         <Route path="/" element={<Dashboard/>}/>
-        <Route path='/login' element={<Login/>} render={() =>
-        status.Authenticated===true ? <Dashboard /> : <Link to="/login"/>}/>
+        <Route path='/login' element={<Login/>}/>
         <Route path='/React' element={<Quiz/>}/>
         <Route path='/javascript' element={<Java/>}/>
         <Route path='/html' element={<Html/>}/>

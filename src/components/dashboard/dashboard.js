@@ -26,7 +26,7 @@ function Dashboard() {
            
             {data.result.items.map((item, index) => (
              
-            generateCard(item.name,"BEGINNER", "./img/react-icon.png", `/${item.name}` , <Quiz/>, item.id,index)
+            generateCard(item.name,"BEGINNER", "./img/react-icon.png", `/${item.name}` , <Quiz/>, item.id[index])
             // <li key={item.id}>{item.name}</li>
           ))}
            
@@ -41,8 +41,8 @@ function Dashboard() {
   );
 }
 
-function generateCard(title, level, iconSrc, linkTo, element,id,index) {
-  console.log(id)
+function generateCard(title, level, iconSrc, linkTo, element,id) {
+  console.log()
   return (
     <Link to={{ pathname: linkTo, state: { id } }} className="custom-link" key={title}>
       <div className="card" key={id}>
