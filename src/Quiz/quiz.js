@@ -11,13 +11,20 @@ const Quiz=(props)=> {
   const [loading, setLoading] = useState(true);
 
   console.log("Id?????",props.id);
+  let search = window.location.search;
+  let params = new URLSearchParams(search);
+  let id = params.get('id');
+
+  console.log("LOG:::id",id)
   
   useEffect(() => {
+    console.log("LOG:::Data",)
     const fetchData = async () => {
       try {
-        const response = await fetch("https://localhost:44311/api/services/app/Question/GetAllIncluding?quizId=6592c795-20e8-4699-1d64-08dc38a5ff4a");
+        const response = await fetch("https://localhost:44311/api/services/app/Question/GetAllIncluding?quizId="+id);
         const json = await response.json();
         setData(json.result);
+        console.log("LOG:::Data",json.result)
       } catch (error) {
         console.error(error);
       } finally {
@@ -26,7 +33,7 @@ const Quiz=(props)=> {
     };
 
     fetchData();
-  },[]);
+  },[id]);
 
 useEffect(() => {
   const fetchAnswer = async () => {

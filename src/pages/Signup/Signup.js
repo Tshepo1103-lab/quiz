@@ -38,7 +38,7 @@ function SignUp() {
                     <input onChange={(e) => setEmail(e.target.value)} placeholder="Email" type='text' id='email' />
                     <input onChange={(e) => setUsername(e.target.value)} placeholder="Username" type='text' id='username' />
                     <input onChange={(e) => setPassword(e.target.value)} placeholder="Password" type='password' id='password' />
-                    <button type='submit'>Register</button>
+                    <button className="buttonSignup" type='submit'>Register</button>
                     <span><a href="/">Login</a></span>
                 </form>
                 {/* You may keep the Footer component if it's necessary */}

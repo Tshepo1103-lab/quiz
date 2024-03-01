@@ -1,9 +1,11 @@
-import React, { useMemo, useReducer } from "react";
+import React, { useMemo, useReducer, } from "react";
 import { AuthContext } from './context'; 
 import { loginReducer } from './reducer';
 import { loginAction, setIdAction, updateDetailsAction } from "./actions";
 
+
 export const AuthProvider = (props) => {
+    
     // we get our state from the reducer and we store it in the provider
     // then we can decide to pass it down to the descendants
     const [user, dispatch] = useReducer(loginReducer, {username: "", password: "", id: 0, name: "", surname: ""});
@@ -79,6 +81,7 @@ export const AuthProvider = (props) => {
         dispatch(loginAction({username: "", password: "", id: 0}));
         localStorage.clear();
         console.log(user);
+        
     }
 
     /**

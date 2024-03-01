@@ -51,7 +51,7 @@ input{
 .dark input{
     border-bottom:3px solid #ffff;
 }
-button{
+.buttonSignin{
     text-align: center;
     margin-bottom: 20px;
     width:305px ;

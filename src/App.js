@@ -8,10 +8,10 @@ import {Link} from 'react-router-dom';
 import Signup from './pages/Signup/Signup';
 import { useState,useEffect } from 'react';
 import NavBar from './components/NavBar/NavBar';
-import Java from './pages/Javascript/javascript';
+import Java from './deleted/Javascript/javascript';
 import Footer from './components/footer/footer';
-import Html from './pages/html/html';
-import Css from './pages/css/css';
+import Html from './deleted/html/html';
+import Css from './deleted/css/css';
 import Leaderboard from './components/Leaderboard/Leaderboard';
 
 
@@ -30,7 +30,7 @@ function App() {
      <Routes>
         <Route path="/" element={<Dashboard/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/React' element={<Quiz/>}/>
+        <Route path='/quiz' element={<Quiz/>}/>
         <Route path='/javascript' element={<Java/>}/>
         <Route path='/html' element={<Html/>}/>
         <Route path='/css' element={<Css/>}/>

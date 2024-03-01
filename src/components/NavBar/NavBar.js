@@ -1,20 +1,26 @@
 // NavBar.js
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
-import AuthContext from '../../AuthProvider/context';
+import { AuthContext } from '../../Provider/AuthProvider/context';
 import { LogoutOutlined } from "@ant-design/icons";
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
+import { useNavigate } from 'react-router-dom';
 
 function NavBar({ theme, setTheme }) {
+  const { logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const toggle_mode = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
 
-  // const status = useAuthStateContext();
-  // const { logout } = useAuthActionContext();
   const toggle_light = "./img/light.jpg";
   const toggle_dark = "./img/dark.jpg";
+
+  const handleClick = () => {
+    logout();
+    navigate('/login'); // Redirect to login after logout
+  };
 
   return (
     <nav className={`navbar ${theme}`}>
@@ -24,7 +30,6 @@ function NavBar({ theme, setTheme }) {
         alt="mode"
         className="toggle-icon"
       />
-
       <ul>
         <li>
           <Link to="/" className="custom-link">
@@ -37,9 +42,9 @@ function NavBar({ theme, setTheme }) {
           </Link>
         </li>
         <li className="logout">
-          <Link to="/Login" className="custom-links">
+          <button className="button-logout" onClick={handleClick}>
             <LogoutOutlined />
-          </Link>
+          </button>
         </li>
       </ul>
     </nav>

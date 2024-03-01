@@ -4,6 +4,10 @@ body {
     font-family: "Montserrat", sans-serif;
     margin: 0;
   }
+.loading{
+    text-align: center;
+    margin:70px;
+  }
   
   .text-content {
     transition: 0.5s;
