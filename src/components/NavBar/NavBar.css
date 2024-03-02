@@ -65,3 +65,7 @@ ul {
   border:none;
   z-index:-1;
 }
+.button-logout:hover{
+  background-color:#000;
+}
+

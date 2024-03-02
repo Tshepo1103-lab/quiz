@@ -59,7 +59,7 @@ function NavBar({ theme, setTheme}) {
     />
     <ul>
      
-      <li>
+      <li className="logout">
         <Link to="/Login" className="custom-link">
           Login
         </Link>

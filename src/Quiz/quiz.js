@@ -10,21 +10,18 @@ const Quiz=(props)=> {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
 
-  console.log("Id?????",props.id);
   let search = window.location.search;
   let params = new URLSearchParams(search);
   let id = params.get('id');
 
-  console.log("LOG:::id",id)
   
   useEffect(() => {
-    console.log("LOG:::Data",)
+
     const fetchData = async () => {
       try {
         const response = await fetch("https://localhost:44311/api/services/app/Question/GetAllIncluding?quizId="+id);
         const json = await response.json();
         setData(json.result);
-        console.log("LOG:::Data",json.result)
       } catch (error) {
         console.error(error);
       } finally {
@@ -40,7 +37,6 @@ useEffect(() => {
     try {
       const response = await fetch(`https://localhost:44311/api/services/app/Answer/GetAnswersAllIncluding?questionId=${data[current].id}`);
       const json = await response.json();
-      console.log("answeers", json)
       if (json?.result != null){
         
         setAnswer(json?.result);

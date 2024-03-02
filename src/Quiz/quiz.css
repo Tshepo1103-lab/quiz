@@ -4,6 +4,10 @@
     padding:40px;
     margin:60px;
     text-align: center;
+    background-color: #b0b0b0;
+}
+.dark .Quiz-Container{
+    background-color: #000;
 }
 .Answer-Container{
     align-items: center;
@@ -15,6 +19,7 @@
 .question-count{
     font-size:40px;
     margin-bottom: 30px;
+    color:#fff;
     
 }
 .dark .question-count{
@@ -23,6 +28,7 @@
 .question-text{
     font-size:20px;
     margin-bottom: 30px;
+    color:#fff;
 }
 .dark .question-text{
     color:#ffff;
@@ -34,31 +40,24 @@
 }
 .Button{
     
-    width: 500px;
-    height: 40px;
+    width: 600px;
     font-size: 20px;
     border: none;
     border-radius: 15px;
     background-color: #ff6600;
     outline: none;
-    height: 40px;
+    height: 60px;
     color:#ffff;
     margin-top: 15px;
     margin-bottom: 20px;
     box-shadow: 0 15px 15px -5px rgba(0,0,0,0.08);
+    margin-left:400px;
 }
 .Button:hover{
-    width: 500px;
-    height: 40px;
-    font-size: 20px;
-    border: none;
+    
     background-color: #ffff;
-    outline: none;
-    height: 40px;
     color: #ff6600;
-    margin-top: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 15px 15px -5px rgba(0,0,0,0.08);
+   
 }
 .score{
     justify-content: center;

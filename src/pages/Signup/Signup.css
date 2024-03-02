@@ -25,6 +25,7 @@
     position: absolute;
     top: 44%;
     left: 50%;
+    margin-top: 35px;
     transform: translate(-50%, -50%);
     width: 400px;
     padding: 80px 50px;

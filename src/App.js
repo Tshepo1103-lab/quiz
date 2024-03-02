@@ -26,10 +26,10 @@ function App() {
 
   return (
     <div className={`app-container ${theme}`}>
-      <NavBar theme={theme} setTheme={setTheme}/>
+    <NavBar theme={theme} setTheme={setTheme}/>
      <Routes>
         <Route path="/" element={<Dashboard/>}/>
-        <Route path='/login' element={<Login/>}/>
+        <Route path='/Login' element={<Login/>}/>
         <Route path='/quiz' element={<Quiz/>}/>
         <Route path='/javascript' element={<Java/>}/>
         <Route path='/html' element={<Html/>}/>
