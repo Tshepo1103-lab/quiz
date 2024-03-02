@@ -14,7 +14,7 @@ import './dashboard.css';
 
 function Dashboard() {
   const { data, loading } = DashBoardData();
-  console.log("data:",data)
+
   return (
     loading ? 
       <h3 className='loading'>Loading Categories</h3> :
@@ -26,16 +26,15 @@ function Dashboard() {
            
             {data.result.items.map((item, index) => (
              
-            generateCard(item.name,"BEGINNER", "./img/react-icon.png", `quiz` , <Quiz/>, item.id)
-            // <li key={item.id}>{item.name}</li>
+            generateCard(item.name,"BEGINNER",item.src, `quiz`, item.id)
           ))}
-          
+           
         </div>
       </div>
   );
 }
 
-function generateCard(title, level, iconSrc, linkTo, element,id) {
+function generateCard(title, level, iconSrc, linkTo,id) {
   console.log()
   return (
     <Link to={{ pathname: linkTo,search:'id='+id }} className="custom-link" key={title}>

@@ -78,17 +78,17 @@ useEffect(() => {
     }
   }
 
-  function handleNext() {
-    if (current < data.length - 1) {
-      setCurrent((prevCurrent) => prevCurrent + 1);
-    }
-  }
-  console.log("State",answer)
-  function handlePrevious() {
-    if (current > 0) {
-      setCurrent((prevCurrent) => prevCurrent - 1);
-    }
-  }
+  // function handleNext() {
+  //   if (current < data.length - 1) {
+  //     setCurrent((prevCurrent) => prevCurrent + 1);
+  //   }
+  // }
+  // console.log("State",answer)
+  // function handlePrevious() {
+  //   if (current > 0) {
+  //     setCurrent((prevCurrent) => prevCurrent - 1);
+  //   }
+  // }
 
   return (
     <div className='quiz-container'>
@@ -102,7 +102,7 @@ useEffect(() => {
           </div>
         )}
 
-        { (
+        {!mark && (
           <div>
             { answer.map((ans, answerIndex) => (
               <ul key={answerIndex}>
