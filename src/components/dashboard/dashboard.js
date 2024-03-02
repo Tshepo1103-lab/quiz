@@ -2,10 +2,7 @@
 
 import React,{useState} from 'react';
 import './dashboard.css';
-import { Link } from 'react-router-dom';
-import Quiz from '../../Quiz/quiz';
-import Html from '../../deleted/html/html';
-import Java from '../../deleted/Javascript/javascript';
+import { Link ,useLocation} from 'react-router-dom';
 import DashBoardData from './QuizTitles';
 
 import './dashboard.css';
@@ -14,11 +11,13 @@ import './dashboard.css';
 
 function Dashboard() {
   const { data, loading } = DashBoardData();
-
+  // eslint-disable-next-line no-restricted-globals
+  const name = location.state?.name;
   return (
     loading ? 
       <h3 className='loading'>Loading Categories</h3> :
       <div className="text-content">
+        <h1>Hi {name}</h1>
         <h1>ARE YOU READY TO UPSKILL YOURSELF?</h1>
         <h4>Ctrl + Alt + Quiz: Reboot Your Brain Cells!!</h4>
         <div className="cardBox">
