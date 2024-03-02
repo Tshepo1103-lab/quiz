@@ -98,15 +98,15 @@ useEffect(() => {
             <div className='question-count'>
               Question {current + 1}/{data.length}
             </div>
-            <div className='question-text'>{data[current].text}</div>
+            <div className='question-text'>{`${data[current].text}?`}</div>
           </div>
         )}
 
         {!mark && (
-          <div>
+          <div className='Answer-container'>
             { answer.map((ans, answerIndex) => (
               <ul key={answerIndex}>
-                <li>
+                <li className='listButton'>
                   <input
                     className='Button'
                     type="button"

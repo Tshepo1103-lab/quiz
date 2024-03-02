@@ -1,4 +1,11 @@
-.QuizContainer{
+.Quiz-Container{
+    align-items: center;
+    justify-content: center;
+    padding:40px;
+    margin:60px;
+    text-align: center;
+}
+.Answer-Container{
     align-items: center;
     justify-content: center;
     padding:40px;
@@ -19,6 +26,11 @@
 }
 .dark .question-text{
     color:#ffff;
+}
+.listButton{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 .Button{
     

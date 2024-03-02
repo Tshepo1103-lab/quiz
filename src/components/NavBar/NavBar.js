@@ -6,7 +6,7 @@ import { AuthContext } from '../../Provider/AuthProvider/context';
 import { LogoutOutlined } from "@ant-design/icons";
 import { useNavigate } from 'react-router-dom';
 
-function NavBar({ theme, setTheme }) {
+function NavBar({ theme, setTheme}) {
   const { logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
