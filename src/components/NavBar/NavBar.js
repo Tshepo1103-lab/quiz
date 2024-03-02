@@ -16,13 +16,14 @@ function NavBar({ theme, setTheme}) {
 
   const toggle_light = "./img/light.jpg";
   const toggle_dark = "./img/dark.jpg";
-
+  var haveToken = localStorage.getItem("accessToken") == null ? false : true; 
   const handleClick = () => {
     logout();
     navigate('/login'); // Redirect to login after logout
   };
 
   return (
+    ( haveToken? 
     <nav className={`navbar ${theme}`}>
       <img
         src={theme === "light" ? toggle_dark : toggle_light}
@@ -47,7 +48,27 @@ function NavBar({ theme, setTheme}) {
           </button>
         </li>
       </ul>
-    </nav>
+    </nav> 
+    :
+    <nav className={`navbar ${theme}`}>
+    <img
+      src={theme === "light" ? toggle_dark : toggle_light}
+      onClick={toggle_mode}
+      alt="mode"
+      className="toggle-icon"
+    />
+    <ul>
+     
+      <li>
+        <Link to="/Login" className="custom-link">
+          Login
+        </Link>
+      </li>
+     
+    </ul>
+  </nav> 
+
+  )
   );
 }
 
