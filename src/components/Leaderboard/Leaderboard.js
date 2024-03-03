@@ -30,19 +30,19 @@ function Leaderboard() {
     <div className='leaderboard'>
       <h2>Leaderboard</h2>
       <div className="quiz-selector">
-        <p>Select a Quiz Type:</p>
+        <p className='selectQuiz'>Select a Quiz Type:</p>
         <select onChange={(e) => handleQuizTypeChange(e.target.value)}>
           <option value={null}>Select</option>
           {Object.keys(tables).map((quizType, index) => (
             <option key={index} value={quizType}>
-              {quizType} Quiz
+              {quizType} quiz
             </option>
           ))}
         </select>
       </div>
       {activeQuizType && tables[activeQuizType] && (
         <div className="quiz-table-container">
-          <h3>{activeQuizType} Quiz</h3>
+          <h3 className='QuizType'>{activeQuizType} quiz</h3>
           <table className="quiz-table">
             <thead>
               <tr>

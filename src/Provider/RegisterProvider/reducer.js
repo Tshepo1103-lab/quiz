@@ -1,22 +1,16 @@
-import { handleAction, handleActions } from "redux-actions"; 
+import { handleActions } from "redux-actions"; 
 import { AuthActionEnums } from "./actions"; 
 
-export const loginReducer = handleActions(
+export const registerReducer = handleActions(
     {
-        [AuthActionEnums.login]: (state, action) => ({
+        [AuthActionEnums.register]: (state, action) => ({
             ...state,
             username: action.payload.username,
             password: action.payload.password,
-        }),
-        [AuthActionEnums.setId]: (state, action) => ({
-            ...state,
-            id: action.payload.id
-        }),
-        [AuthActionEnums.updateUserDetails]: (state, action) => ({
-            ...state,
             name: action.payload.name,
             surname: action.payload.surname,
+            email: action.payload.email,
         })
     },
-    { username: "", password: "", id: 0, name: "", surname: "" }
+    { username: "", password: "", name: "", surname: "",email:"" }
 );

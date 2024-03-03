@@ -9,7 +9,7 @@ function Footer() {
     return (
         
         <div className="footer-container">
-                        <div className="quiz-box">
+            <div className="quiz-box">
             <h2>QuizBox</h2>
             </div>
             <div className="main-footer-container">
@@ -19,12 +19,8 @@ function Footer() {
                     <li><FacebookOutlined /></li>
                     <li><InstagramOutlined /></li>
                 </ul>
-            </div>
-
-            
+            </div>  
         </div>
-        
-  
     );
 }
 

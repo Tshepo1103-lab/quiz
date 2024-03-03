@@ -4,6 +4,7 @@ export const AuthActionEnums = {
     login: "LOGIN",
     setId: "SET__ID",
     updateUserDetails: "SET_NAME_SURNAME",
+    logout:"LOGOUT"
 }
 
 export const loginAction = createAction(
@@ -14,6 +15,9 @@ export const loginAction = createAction(
             password
         }
     }
+);
+export const logoutAction = createAction(
+    AuthActionEnums.logout
 );
 
 export const setIdAction = createAction(

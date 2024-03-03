@@ -8,6 +8,9 @@ export const loginReducer = handleActions(
             username: action.payload.username,
             password: action.payload.password,
         }),
+        [AuthActionEnums.logout]: (state, action) => ({
+             username: '', password: '', id: 0 
+        }),
         [AuthActionEnums.setId]: (state, action) => ({
             ...state,
             id: action.payload.id

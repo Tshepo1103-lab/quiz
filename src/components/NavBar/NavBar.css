@@ -61,12 +61,12 @@ ul {
 }
 .button-logout{
   width:30px;
-  background-color:#000;
+  background-color:#fff;
   border:none;
   z-index:-1;
 }
-.button-logout:hover{
-  background-color:#000;
+.dark .button-logout{
+  background-color: #000;
 }
 
 

@@ -1,7 +1,7 @@
 import React, { useState,useMemo, useReducer, } from "react";
 import { AuthContext } from './context'; 
 import { loginReducer } from './reducer';
-import { loginAction, setIdAction, updateDetailsAction } from "./actions";
+import { loginAction,logoutAction, setIdAction, updateDetailsAction } from "./actions";
 
 
 export const AuthProvider = (props) => {
@@ -25,42 +25,48 @@ export const AuthProvider = (props) => {
             const headers = {
                 'Content-Type': 'application/json',
             };
-
+    
             const response = await fetch(url, {
                 headers,
                 body: JSON.stringify(body),
                 method: 'POST',
                 mode: 'cors',
             });
-
+    
             if (!response.ok) {
                 throw new Error('Authentication failed');
             }
-
+    
             const json = await response.json();
-
+    
             if (json.success) {
                 const accessToken = json.result.accessToken;
-                const id = json.result.id;
-
+                const userId = json.result.id;
+    
                 localStorage.setItem('accessToken', accessToken);
-                dispatch(setIdAction(id));
-
+                dispatch(setIdAction(userId));
+    
                 const token = localStorage.getItem('accessToken');
-
-                const profileResponse = await fetch(
-                    'https://localhost:44311/api/services/app/Session/GetCurrentLoginInformations',
-                    {
-                        headers: {
-                            Authorization: `Bearer ${token}`,
-                        },
-                        method: 'GET',
-                    }
-                );
-
+                localStorage.setItem('userId',userId)
+                console.log(userId);
+    
+                const profileUrl = 'https://localhost:44311/api/services/app/Session/GetCurrentLoginInformations';
+                const profileHeaders = {
+                    Authorization: `Bearer ${token}`,
+                };
+                const profileResponse = await fetch(profileUrl, {
+                    headers: profileHeaders,
+                    method: 'GET',
+                });
+    
                 if (profileResponse.ok) {
                     const profileJson = await profileResponse.json();
-                    dispatch(updateDetailsAction(profileJson.result.user));
+                    const profileUser = profileJson.result.user;
+    
+                    // Now, use the user ID from the profile
+                    dispatch(setIdAction(profileUser.id));
+    
+                    dispatch(updateDetailsAction(profileUser));
                 } else {
                     console.log('Could not get profile');
                 }
@@ -77,7 +83,7 @@ export const AuthProvider = (props) => {
 
     function logout() {
         console.log('Logging Out');
-        dispatch(loginAction({ username: '', password: '', id: 0 }));
+        dispatch(logoutAction());
         localStorage.clear();
         console.log(user);
     }
