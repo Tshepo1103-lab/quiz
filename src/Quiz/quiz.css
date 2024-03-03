@@ -1,69 +1,96 @@
-.Quiz-Container{
+.Quiz-Container {
     align-items: center;
     justify-content: center;
-    padding:40px;
-    margin:60px;
+    padding: 40px;
+    margin: 60px;
     text-align: center;
     background-color: #b0b0b0;
 }
-.dark .Quiz-Container{
+
+.dark .Quiz-Container {
     background-color: #000;
 }
-.Answer-Container{
-    align-items: center;
-    justify-content: center;
-    padding:40px;
-    margin:60px;
+
+.Answer-container {
+    
     text-align: center;
-}
-.question-count{
-    font-size:40px;
-    margin-bottom: 30px;
-    color:#fff;
-    
-}
-.dark .question-count{
-    color:#ffff;
-}
-.question-text{
-    font-size:20px;
-    margin-bottom: 30px;
-    color:#fff;
-}
-.dark .question-text{
-    color:#ffff;
-}
-.listButton{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
-.Button{
-    
-    width: 600px;
-    font-size: 20px;
-    border: none;
-    border-radius: 15px;
-    background-color: #ff6600;
-    outline: none;
-    height: 60px;
-    color:#ffff;
-    margin-top: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 15px 15px -5px rgba(0,0,0,0.08);
-    margin-left:400px;
-}
-.Button:hover{
-    
-    background-color: #ffff;
-    color: #ff6600;
+    display: inline-block;
    
 }
-.score{
+
+.question-count {
+    font-size: 1.5em; /* Adjusted font size for better readability */
+    margin-bottom: 20px; /* Adjusted margin for better spacing */
+    color: #000;
+}
+
+.dark .question-count {
+    color: #ffff;
+}
+
+.question-text {
+    font-size: 1.2em; /* Adjusted font size for better readability */
+    margin-bottom: 20px; /* Adjusted margin for better spacing */
+    color: #000;
+    font-weight: 600px;
+}
+
+.dark .question-text {
+    color: #ffff;
+}
+
+.listButton {
+    text-align: center;
     justify-content: center;
-    color:red;
+    align-items: center;
+}
+
+.Button {
+    width: 600px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 15px;
+    background-color: #fff;
+    outline: none;
+    height: 60px;
+    color: #000;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    box-shadow: 5px 15px 5px 2px rgba(0, 0, 0, 0.09);
+    transition: background 0.3s ease-in-out;
+}
+
+.Button:hover {
+    background-image: linear-gradient(79deg, #ff5500, #ff8000be 48%, #00000026);
+    color: #000;
+}
+
+.score {
+    justify-content: center;
+    color: red;
     text-align: center;
 }
-.scoreMessage{
+
+.scoreMessage {
     color: #ff6600;
+}
+
+@media (max-width: 600px) {
+    .Quiz-Container,
+    .Answer-Container {
+        padding: 20px; /* Adjusted padding for better spacing on smaller screens */
+        margin: 30px;
+        width:100% /* Adjusted margin for better spacing on smaller screens */
+    }
+
+    .question-count,
+    .question-text {
+        font-size: 1.2em; /* Adjusted font size for better readability on smaller screens */
+        margin-bottom: 15px; /* Adjusted margin for better spacing on smaller screens */
+    }
+
+    .Button {
+        font-size: 1em;
+         /* Adjusted font size for better readability on smaller screens */
+    }
 }

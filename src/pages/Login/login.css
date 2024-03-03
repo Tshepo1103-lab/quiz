@@ -33,15 +33,14 @@
     border-radius: 15%; 
     align-items: center;
 }
-input{
+.inputSignin{
     
-    width :300px;
+    width: 100%;
     height: 40px;
     font-size: 20px;
     border: none;
     border-bottom: 3px solid #000;
     outline: none;
-    height: 40px;
     color: #fff;
     background-color: transparent;
     margin-top: 15px;
@@ -100,9 +99,29 @@ span:hover {
 
 
 
+  @media (max-width: 600px) {
+    .containerLogin form {
+        width: 90%; /* Adjust the width as needed */
+        padding: 40px 20px; /* Adjust the padding as needed */
+        font-size: 16px; /* Adjust the font size as needed */
+    }
 
-@media screen and (max-width: 600px ) {
-    .formSignin,.containerLogin{
-            background-color:#e00a0a;
+    .imgLogin {
+        display: none; /* Hide the image on screens with a width of 600 pixels or less */
+    }
+
+    input {
+        width: 100%; /* Make the input take up the full width of the container */
+        border-bottom: 2px solid #000; /* Adjust the percentage-based border width as needed */
+        margin-top: 10px; /* Adjust the margin as needed */
+        margin-bottom: 15px; /* Adjust the margin as needed */
+    }
+
+    .dark input {
+        border-bottom: 3px solid #ffff;
+    }
+
+    .buttonSignin {
+        width: 100%; /* Make the button take up the full width of the container */
     }
 }

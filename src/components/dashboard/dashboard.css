@@ -11,13 +11,11 @@ body {
   
   .text-content {
     transition: 0.5s;
-    margin-top: 100px;
+    margin-top: 50px;
     text-align: center;
     padding:40px;
   }
-  .cardBox {
-    text-align: left;
-  }
+  
   
   h1 {
     margin-bottom: 10px;
@@ -39,14 +37,16 @@ body {
   
   .card {
     background: #fff;
-    padding: 40px;
+    padding: 40px; /* Adjusted padding for better spacing on smaller screens */
     border-radius: 20px;
     display: flex;
-    justify-content: space-between;
+     /* Ensure a vertical layout on smaller screens */
+     /* Align content to the start of the column */
     cursor: pointer;
     box-shadow: 5px 15px 5px 2px rgba(0, 0, 0, 0.09);
     transition: background 0.3s ease-in-out;
-  }
+    overflow: hidden;
+}
   
   .numbers {
     font-weight: 500;
@@ -62,9 +62,9 @@ body {
   
   .quizIcon {
     font-size: 2.5em;
-    color: #444;
     height: 100px;
-    float: right;
+    float:right;
+    
   }
   
   .card:hover {
@@ -72,8 +72,7 @@ body {
   }
   
   .card:hover .numbers,
-  .card:hover .cardName,
-  .card:hover .iconBx {
+  .card:hover .cardName {
     color: #fff;
   }
   
@@ -86,3 +85,32 @@ body {
     color: #fff;
   }
   
+
+
+  @media (max-width: 600px) {
+    .cardBox {
+        grid-template-columns: repeat(1, 1fr); 
+        padding: 15px; 
+    }
+  }
+
+@media (max-width: 768px) {
+    .cardBox {
+      grid-template-columns: repeat(1, 1fr); 
+      padding: 15px; 
+
+  .card {
+      width: 100%; 
+      margin-bottom: 20px; 
+  }
+
+  .cardHeader h2 {
+      font-size: 20px;
+  }
+    .quizIcon{
+      display:none;
+    }
+}
+
+}
+

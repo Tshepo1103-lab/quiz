@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Score from '../components/score';
+import React, { useState, useEffect,useContext } from 'react';
+import Score from '../components/score/score';
+import { AuthContext } from '../Provider/AuthProvider/context';
 import './quiz.css';
 
 const Quiz=(props)=> {
+  const { user} = useContext(AuthContext);
   const [current, setCurrent] = useState(0);
   const [mark, setMark] = useState(false);
   const [score, setScore] = useState(0);
@@ -69,22 +71,12 @@ useEffect(() => {
 
     if (current === data.length - 1) {
       setMark(true);
+
     } else {
       setCurrent((prevCurrent) => prevCurrent + 1);
     }
   }
 
-  // function handleNext() {
-  //   if (current < data.length - 1) {
-  //     setCurrent((prevCurrent) => prevCurrent + 1);
-  //   }
-  // }
-  // console.log("State",answer)
-  // function handlePrevious() {
-  //   if (current > 0) {
-  //     setCurrent((prevCurrent) => prevCurrent - 1);
-  //   }
-  // }
 
   return (
     <div className='quiz-container'>
@@ -94,7 +86,7 @@ useEffect(() => {
             <div className='question-count'>
               Question {current + 1}/{data.length}
             </div>
-            <div className='question-text'>{`${data[current].text}?`}</div>
+            <div className='question-text'><h1>{`${data[current].text}?`}</h1></div>
           </div>
         )}
 
@@ -112,13 +104,9 @@ useEffect(() => {
                 </li>
               </ul>
             ))}
-            {/* <div>
-              <button className='Button' onClick={handlePrevious} disabled={current === 0}>Previous</button>
-              <button className='Button' onClick={handleNext} disabled={current === data.length - 1}>Next</button>
-            </div> */}
           </div>
         )}
-        <Score score={score} mark={mark}/>
+        <Score user={user.name} score={score} mark={mark}/>
       </div>
     </div>
   );

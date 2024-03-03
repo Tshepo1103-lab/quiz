@@ -1,14 +1,14 @@
-import React, { useMemo, useReducer, } from "react";
+import React, { useState,useMemo, useReducer, } from "react";
 import { AuthContext } from './context'; 
 import { loginReducer } from './reducer';
 import { loginAction, setIdAction, updateDetailsAction } from "./actions";
 
 
-// ... (imports)
-
 export const AuthProvider = (props) => {
     const [user, dispatch] = useReducer(loginReducer, { username: "", password: "", id: 0, name: "", surname: "" });
+    const[errorLogin,setErrorLogin]=useState('');
 
+    
     const latestUser = useMemo(() => {
         console.log("memoized user", user);
         return { ...user };
@@ -69,6 +69,7 @@ export const AuthProvider = (props) => {
             }
         } catch (error) {
             console.error('Error during authentication:', error.message);
+            setErrorLogin(error.message);
         } finally {
             dispatch(loginAction(newUser));
         }
@@ -82,7 +83,7 @@ export const AuthProvider = (props) => {
     }
 
     return (
-        <AuthContext.Provider value={{ user: latestUser, login, logout }}>
+        <AuthContext.Provider value={{ user: latestUser, login, logout,error:{errorLogin} }}>
             {props.children}
         </AuthContext.Provider>
     );

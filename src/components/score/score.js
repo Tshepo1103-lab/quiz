@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import { Link} from 'react-router-dom';
 
-function Score({ score, mark }) {
+function Score({ score, mark,user }) {
   const [highScores, setHighScores] = useState([]);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ function Score({ score, mark }) {
   }, []);
   function handleScore() {
     let entry = {
-      name: "Tshepotest",
+      name: user,
       score:score,
       quizType:"react"
     };
