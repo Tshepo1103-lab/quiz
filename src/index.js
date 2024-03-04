@@ -6,15 +6,18 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './Provider/AuthProvider';
 import ErrorBoundary from './ErrorBoundary';
+import QuizProvider from './Provider/QuizProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ErrorBoundary fallback="There was an error!">
     <AuthProvider>
+    <QuizProvider>
     <BrowserRouter>
        <App />
     </BrowserRouter>
+    </QuizProvider>
     </AuthProvider>
     </ErrorBoundary> 
   </React.StrictMode>

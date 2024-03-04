@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './Leaderboard.css'; // Import the stylesheet
+import { useQuizAction, useQuizState} from '../../Provider/QuizProvider';
+
 
 function Leaderboard() {
+const {fetchData,fetchLeader}=useQuizAction();
+const status=useQuizState();
+const [scoreState,setScoreState]=useState([]);
+
+console.log("state:",status)
+
+
   const [highScores, setHighScores] = useState([]);
   const [activeQuizType, setActiveQuizType] = useState(null);
 
   useEffect(() => {
+    fetchData();
+    
     // Fetch high scores from localStorage 
     const storedHighScores = JSON.parse(localStorage.getItem("highScores")) || [];
     setHighScores(storedHighScores);
@@ -24,6 +35,8 @@ function Leaderboard() {
 
   const handleQuizTypeChange = (quizType) => {
     setActiveQuizType(quizType);
+    const quizScore=status.items.filter(d=>d.name===quizType)
+    fetchLeader(quizScore[0].id);
   };
 
   return (
@@ -33,14 +46,14 @@ function Leaderboard() {
         <p className='selectQuiz'>Select a Quiz Type:</p>
         <select onChange={(e) => handleQuizTypeChange(e.target.value)}>
           <option value={null}>Select</option>
-          {Object.keys(tables).map((quizType, index) => (
-            <option key={index} value={quizType}>
-              {quizType} quiz
+          {status.items?.map((quizType, index) => (
+            <option key={index} value={quizType.name}>
+              {quizType.name} quiz
             </option>
           ))}
         </select>
       </div>
-      {activeQuizType && tables[activeQuizType] && (
+      {activeQuizType && status.score && (
         <div className="quiz-table-container">
           <h3 className='QuizType'>{activeQuizType} quiz</h3>
           <table className="quiz-table">
@@ -52,7 +65,7 @@ function Leaderboard() {
               </tr>
             </thead>
             <tbody>
-              {tables[activeQuizType].map((entry, entryIndex) => (
+              {status.score.map((entry, entryIndex) => (
                 <tr key={entryIndex}>
                   <td>{entryIndex + 1}</td>
                   <td>{entry.name}</td>

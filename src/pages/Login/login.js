@@ -5,56 +5,58 @@ import { AuthContext } from '../../Provider/AuthProvider/context';
 import { Alert } from 'antd';
 import "./login.css";
 
-//Component to Login
+// Component to Login
 function Login() {
-  //used to navigate on success
+  // Used to navigate on success
   const navigate = useNavigate();
 
-  //declaring the state
+  // Declaring the state
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const { user, login } = useContext(AuthContext);
 
-  //function that will trigger if there is an error
+  // Function that will trigger if there is an error
   const ErrorLogin = () => {
-    return <Alert message="Invalid username or password" type="error" />;
+    return <Alert message={error} type="error" />;
   };
 
-  useEffect(()=>{
-    debugger;
-     const accessToken = localStorage.getItem("accessToken")
-     if(accessToken){
-      navigate('/dashboard',{ replace: true })
-     }
-  })
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      navigate('/dashboard', { replace: true });
+    }
+  });
 
-  //onSubmit function
+  // onSubmit function
   const makeLogin = (e) => {
     e.preventDefault();
-    //checks if the user provided credentials
-    if (username.length > 0 && password.length>0) {
-      debugger;
+    // Checks if the user provided credentials
+    if (username.length > 0 && password.length > 0) {
       login({
         username,
         password
       })
-      .then((data)=>{
-        localStorage.setItem('token', data.result.accessToken)
-      }).catch((error)=>console.log(error));
+        .then((data) => {
+          localStorage.setItem('token', data.result.accessToken);
+        })
+        .catch((error) => {
+          setError("Invalid username or password");
+          console.log(error);
+        });
     }
   };
 
   return (
     <div className='containerLogin'>
-        <form className='formSignin' onSubmit={makeLogin}>
-          <h2 className='SignInHeader'>Login<img src="./img/Logo.jpg" alt="Alternate Text" className='imgLogin' /></h2>
-          {error && <ErrorLogin />}
-          <input className="inputSignin" id="username" placeholder="username" type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-          <input className="inputSignin" id="username" placeholder="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          <button className='buttonSignin' type="submit">Login</button>
-          <Link to="/signup" className='custom-link'><span>Don't have an account? Sign up here.</span></Link>
-        </form>
+      <form className='formSignin' onSubmit={makeLogin}>
+        <h2 className='SignInHeader'>Login<img src="./img/Logo.jpg" alt="Alternate Text" className='imgLogin' /></h2>
+        {error && <ErrorLogin />}
+        <input className="inputSignin" id="username" placeholder="username" type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <input className="inputSignin" id="username" placeholder="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <button className='buttonSignin' type="submit">Login</button>
+        <Link to="/signup" className='custom-link'><span>Don't have an account? Sign up here.</span></Link>
+      </form>
     </div>
   );
 }
