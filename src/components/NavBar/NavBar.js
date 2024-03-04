@@ -1,5 +1,5 @@
 // NavBar.js
-import React, { useContext } from "react";
+import React, { useContext,UseState } from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from '../../Provider/AuthProvider/context';
@@ -8,13 +8,14 @@ import { useNavigate } from 'react-router-dom';
 
 function NavBar({ theme, setTheme}) {
   const { user,logout } = useContext(AuthContext);
+  
   console.log(user)
   const navigate = useNavigate();
 
   const toggle_mode = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
-
+  localStorage.setItem('theme',theme)
   const toggle_light = "./img/light.jpg";
   const toggle_dark = "./img/dark.jpg";
   var haveToken = localStorage.getItem("accessToken") == null ? false : true; 

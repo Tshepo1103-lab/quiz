@@ -40,16 +40,15 @@ function SignUp() {
         <div className='Sign-Up'>
             <div className='containerLogin'>
                 <form onSubmit={makeRegister}>
-                    <h2 className='SignUpHeader'>Register</h2>
-
+                    <h2 className='SignUpHeader'>Register<img src="./img/Logo.jpg" alt="Alternate Text" className='imgLogin' /></h2>
                     {error && <Alert message={error} type="error" />} {/* Show error message if present */}
                     <input onChange={(e) => setFirstName(e.target.value)} placeholder="First Name" type='text' id='firstname' />
                     <input onChange={(e) => setLastName(e.target.value)} placeholder="Last Name" type='text' id='lastname' />
                     <input onChange={(e) => setEmail(e.target.value)} placeholder="Email" type='text' id='email' />
                     <input onChange={(e) => setUsername(e.target.value)} placeholder="Username" type='text' id='username' />
                     <input onChange={(e) => setPassword(e.target.value)} placeholder="Password" type='password' id='password' />
-                    <button type='submit'>Register</button>
-                    <span><a href="/Login">Login</a></span>
+                    <button className='buttonSignup' type="submit">Register</button>
+                    <span><a href="/">Login</a></span>
                 </form>
             </div>
         </div>

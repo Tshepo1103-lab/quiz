@@ -64,6 +64,14 @@
     background-image: linear-gradient(79deg, #ff5500, #ff8000be 48%, #00000026);
     color: #000;
 }
+.questionsFound{
+    font-size:50px;
+    margin-top: 50px;
+    text-align:center;
+}
+.dark .questionsFound{
+    color:#fff;
+}
 
 .score {
     justify-content: center;

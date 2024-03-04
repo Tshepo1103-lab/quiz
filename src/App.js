@@ -4,7 +4,6 @@ import Quiz from './Quiz/quiz';
 import Dashboard from './components/dashboard/dashboard';
 import Login from './pages/Login/login';
 import {Route,Routes} from 'react-router-dom';
-import {Link} from 'react-router-dom';
 import Signup from './pages/Signup/Signup';
 import { useState,useEffect } from 'react';
 import NavBar from './components/NavBar/NavBar';

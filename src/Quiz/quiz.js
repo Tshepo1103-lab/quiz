@@ -46,12 +46,12 @@ const Quiz=()=> {
           alert(error);
         }
       };
-  
+    
       // Call the async function
       PostScore();
     }
-  }, []);
-  
+  });
+
 //Get the question using the Quiz id
   useEffect(() => {
 
@@ -101,7 +101,7 @@ useEffect(() => {
   }
 //if no questions are added for a quiz
   if (!data || data.length === 0) {
-    return <div>No questions found.</div>;
+    return <div className="questionsFound">No questions found.</div>;
   }
 
 

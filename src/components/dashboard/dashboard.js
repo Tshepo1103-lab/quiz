@@ -32,7 +32,6 @@ function Dashboard() {
 
 //function to generate the cards, it takes in parameters to do that
 function generateCard(title, level, iconSrc, linkTo,id) {
-  debugger;
   console.log()
   return (
     <Link to={{ pathname: linkTo,search:'id='+id}} className="custom-link" key={title}>
